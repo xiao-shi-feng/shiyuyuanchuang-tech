@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新闻动态 - 石家庄时煜源创科技有限公司</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">时煜源创科技</a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="products.html">产品服务</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="blog.html" class="active">新闻动态</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 新闻动态页面标题 -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">新闻动态</h1>
+        <p class="page-subtitle">关注行业动态，分享技术前沿</p>
+      </div>
+    </section>
+
+    <!-- 文章分类 -->
+    <section class="blog-categories">
+      <div class="container">
+        <div class="category-tabs">
+          <button class="category-btn active" onclick="filterCategory('all')">全部</button>
+          <button class="category-btn" onclick="filterCategory('tech')">技术前沿</button>
+          <button class="category-btn" onclick="filterCategory('company')">公司动态</button>
+          <button class="category-btn" onclick="filterCategory('industry')">行业资讯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 文章列表 -->
+    <section class="blog-articles">
+      <div class="container">
+        <div class="articles-grid">
+          <!-- 文章1 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">🔥</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-12-01</span>
+                <span class="article-category">技术前沿</span>
+              </div>
+              <h3>人工智能在软件开发中的应用趋势</h3>
+              <p>探讨AI技术如何改变传统软件开发流程，包括智能代码生成、自动化测试等应用场景...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+
+          <!-- 文章2 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">🚀</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-11-28</span>
+                <span class="article-category">公司动态</span>
+              </div>
+              <h3>时煜源创科技有限公司正式成立</h3>
+              <p>石家庄时煜源创科技有限公司正式注册成立，致力于为中小企业提供专业的技术解决方案...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+
+          <!-- 文章3 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">💡</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-11-25</span>
+                <span class="article-category">技术前沿</span>
+              </div>
+              <h3>低代码开发平台的优势与挑战</h3>
+              <p>分析低代码开发平台如何帮助企业快速构建应用，以及在实际应用中需要注意的问题...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+
+          <!-- 文章4 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">📊</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-11-20</span>
+                <span class="article-category">行业资讯</span>
+              </div>
+              <h3>2025年中小企业数字化转型趋势报告</h3>
+              <p>最新行业报告显示，越来越多的中小企业开始重视数字化转型，IT投资持续增长...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+
+          <!-- 文章5 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">🌐</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-11-15</span>
+                <span class="article-category">技术前沿</span>
+              </div>
+              <h3>云计算技术如何助力企业降本增效</h3>
+              <p>云计算技术为企业提供了弹性计算资源，有效降低IT成本，提升业务效率...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+
+          <!-- 文章6 -->
+          <article class="article-card">
+            <div class="article-image">
+              <span class="article-icon">🎯</span>
+            </div>
+            <div class="article-content">
+              <div class="article-meta">
+                <span class="article-date">2025-11-10</span>
+                <span class="article-category">公司动态</span>
+              </div>
+              <h3>时煜源创荣获行业创新奖提名</h3>
+              <p>凭借在技术服务领域的创新实践，时煜源创科技荣获2025年度行业创新奖提名...</p>
+              <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">→</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>石家庄时煜源创科技有限公司</h4>
+          <p>技术服务 | 软件开发 | 互联网销售</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="products.html">产品服务</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <p>📞 电话：请补充您的联系方式</p>
+          <p>📧 邮箱：请补充您的邮箱地址</p>
+          <p>📍 地址：河北省石家庄市高新区丘头镇徐村南昌路322号</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 石家庄时煜源创科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // 文章分类筛选功能（占位，实际需要完善）
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // 这里应该添加实际的筛选逻辑
+      console.log('筛选分类:', category);
+    }
+  </script>
+</body>
+</html>

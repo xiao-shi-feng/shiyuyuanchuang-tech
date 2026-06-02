@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  这是首页文件。
+  浏览器打开这个文件，就能看到你的公司网站。
+  <!DOCTYPE html> 告诉浏览器：这是一个 HTML5 网页。
+-->
+<html lang="zh-CN">
+<!--
+  <html> 是整个网页的根元素。
+  lang="zh-CN" 表示这个网页是中文的。
+-->
+<head>
+  <!-- <head> 里放的是"网页的配置信息"，用户看不到这些内容 -->
+
+  <meta charset="UTF-8">
+  <!-- 告诉浏览器用 UTF-8 编码，这样中文才不会乱码 -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 让网页在手机上也能正常显示（自适应屏幕宽度） -->
+
+  <title>石家庄时煜源创科技有限公司 - 官方网站</title>
+  <!-- 浏览器标签页上显示的文字 -->
+
+  <!-- 引入样式文件（装修方案），让网页变得好看 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- <body> 里放的是"用户能看到的内容" -->
+
+  <!-- ============ 导航栏（网站顶部的菜单） ============ -->
+  <header class="header">
+    <nav class="nav container">
+      <!-- 公司 Logo -->
+      <a href="index.html" class="logo">时煜源创科技</a>
+
+      <!-- 导航链接 -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="products.html">产品服务</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="blog.html">新闻动态</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+
+      <!-- 手机端的菜单按钮（三横线图标） -->
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+
+  <!-- ============ 横幅区域（网页最顶部的大图区域） ============ -->
+  <section class="hero">
+    <div class="container">
+      <h1>石家庄时煜源创科技有限公司</h1>
+      <p>技术服务 | 软件开发 | 互联网销售</p>
+      <a href="contact.html" class="btn">联系我们</a>
+    </div>
+  </section>
+
+  <!-- ============ 核心优势（展示公司的亮点） ============ -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">为什么选择我们</h2>
+      <div class="features-grid">
+        <!-- 每个优势是一个"卡片" -->
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>技术服务</h3>
+          <p>提供全方位的技术服务、咨询与解决方案，助力企业数字化转型。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>软件开发</h3>
+          <p>定制化软件开发，满足企业个性化需求，提升业务效率。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛍️</div>
+          <h3>互联网销售</h3>
+          <p>专业的电商平台解决方案，助力线上业务增长。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3>技术推广</h3>
+          <p>持续关注前沿技术，确保为客户提供最新的技术解决方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 产品概览（简单展示主要产品） ============ -->
+  <section class="products-preview">
+    <div class="container">
+      <h2 class="section-title">我们的服务</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">💻</div>
+          <h3>技术服务</h3>
+          <p>技术咨询、交流、转让与推广，全流程技术支持。</p>
+        </div>
+        <div class="product-card">
+          <div class="product-img">💾</div>
+          <h3>软件开发</h3>
+          <p>定制化软件开发服务，包括小程序、Web应用等。</p>
+        </div>
+        <div class="product-card">
+          <div class="product-img">🌐</div>
+          <h3>互联网销售</h3>
+          <p>电商平台搭建与运营支持，线上业务全方位解决方案。</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="products.html" class="btn">查看全部服务 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数据展示（用数字说话） ============ -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>5+</h3>
+          <p>年行业经验</p>
+        </div>
+        <div class="stat-item">
+          <h3>100+</h3>
+          <p>服务客户</p>
+        </div>
+        <div class="stat-item">
+          <h3>200+</h3>
+          <p>完成项目</p>
+        </div>
+        <div class="stat-item">
+          <h3>99%</h3>
+          <p>客户满意度</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 页脚（网站底部信息） ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>石家庄时煜源创科技有限公司</h4>
+          <p>技术服务 | 软件开发 | 互联网销售</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="products.html">产品服务</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <p>📞 电话：请补充您的联系方式</p>
+          <p>📧 邮箱：请补充您的邮箱地址</p>
+          <p>📍 地址：河北省石家庄市高新区丘头镇徐村南昌路322号</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 石家庄时煜源创科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 引入 JavaScript 文件（让网页有交互能力） -->
+  <script src="js/main.js"></script>
+</body>
+</html>

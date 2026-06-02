@@ -1,0 +1,488 @@
+/*
+  CSS 样式文件 —— 控制网页"长什么样"
+  颜色、大小、间距、布局全在这里设置
+*/
+
+/* ============ 全局设置 ============ */
+* {
+  margin: 0;          /* 去掉所有元素的默认外边距 */
+  padding: 0;         /* 去掉所有元素的默认内边距 */
+  box-sizing: border-box;  /* 让宽度计算更直观 */
+}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  /* 字体：优先用微软雅黑（中文显示最好看） */
+  color: #333;        /* 文字颜色：深灰色（比纯黑柔和） */
+  line-height: 1.6;   /* 行间距：1.6倍（读起来舒服） */
+}
+
+/* 通用容器：让内容居中，最大宽度 1200 像素 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;     /* 水平居中 */
+  padding: 0 20px;    /* 左右留点边距 */
+}
+
+/* 网格背景动画效果 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 10s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+body {
+  background-color: #0f172a;  /* 深蓝色背景 */
+  color: #e2e8f0;            /* 浅灰色文字 */
+}
+
+/* ============ 导航栏（顶部菜单） ============ */
+.header {
+  background: rgba(15, 23, 42, 0.8);  /* 半透明深色 */
+  backdrop-filter: blur(10px);       /* 毛玻璃效果 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 通用按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #2563eb;  /* 蓝色按钮 */
+  color: white;
+  text-decoration: none;      /* 去掉链接的下划线 */
+  border-radius: 6px;         /* 圆角 */
+  font-size: 16px;
+  transition: background-color 0.3s;  /* 鼠标悬停时颜色渐变 */
+}
+
+.btn:hover {
+  background-color: #1d4ed8;  /* 鼠标放上去变深蓝色 */
+}
+
+/* 段落标题居中 */
+.text-center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 每个大区块的标题 */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #e2e8f0;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+  animation: glow-text 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow-text {
+  from { text-shadow: 0 0 10px rgba(96, 165, 250, 0.3); }
+  to { text-shadow: 0 0 20px rgba(96, 165, 250, 0.6), 0 0 30px rgba(96, 165, 250, 0.3); }
+}
+
+/* ============ 导航栏（顶部菜单） ============ */
+.header {
+  background: rgba(15, 23, 42, 0.8);  /* 半透明深色 */
+  backdrop-filter: blur(10px);       /* 毛玻璃效果 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: fixed;    /* 固定在页面顶部，滚动时不会消失 */
+  width: 100%;
+  top: 0;
+  z-index: 1000;      /* 确保导航栏在最上层 */
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;  /* Logo 在左，菜单在右 */
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #60a5fa;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.nav-links {
+  list-style: none;   /* 去掉列表前面的圆点 */
+  display: flex;
+  gap: 30px;          /* 每个链接之间的间距 */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #60a5fa;
+  text-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* 手机端菜单按钮（默认隐藏） */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ============ 横幅区域（Hero） ============ */
+.hero {
+  /*
+    深蓝到紫蓝的渐变背景，更有科技感
+    padding-top: 140px 是因为导航栏占了 70px，要留出空间
+  */
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  text-align: center;
+  padding: 140px 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+  animation: glow-text 3s ease-in-out infinite alternate;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  color: #cbd5e1;
+}
+
+.hero .btn {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s;
+}
+
+.hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+/* ============ 核心优势（4个卡片） ============ */
+.features {
+  padding: 80px 0;    /* 上下留白 */
+  background-color: #1e293b;  /* 深灰背景 */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 一行4列，平均分配宽度 */
+  gap: 30px;          /* 卡片之间的间距 */
+}
+
+.feature-card {
+  background: rgba(30, 41, 59, 0.8);  /* 半透明深色 */
+  border: 1px solid rgba(96, 165, 250, 0.2);  /* 蓝色边框 */
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  /* 更明显的阴影 */
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #60a5fa, #3b82f6, #2563eb);
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.feature-card:hover::before {
+  opacity: 0.5;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px) scale(1.02);  /* 悬浮时轻微放大 */
+  border-color: transparent;
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+}
+
+.feature-card h3 {
+  margin-bottom: 10px;
+  color: #e2e8f0;
+  font-size: 20px;
+}
+
+.feature-card p {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ============ 产品概览（3个卡片） ============ */
+.products-preview {
+  padding: 80px 0;
+  background-color: #0f172a;  /* 深蓝背景 */
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 一行3列 */
+  gap: 30px;
+}
+
+.product-card {
+  background: rgba(30, 41, 59, 0.8);  /* 半透明深色 */
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: #60a5fa;
+}
+
+.product-img {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  padding: 40px;
+  text-align: center;
+  font-size: 64px;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.product-card h3 {
+  padding: 20px 20px 10px;
+  color: #e2e8f0;
+}
+
+.product-card p {
+  padding: 0 20px 20px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+/* ============ 数据展示 ============ */
+.stats {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
+  animation: sweep 8s linear infinite;
+}
+
+@keyframes sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 42px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  animation: count-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes count-glow {
+  from { text-shadow: 0 0 10px rgba(96, 165, 250, 0.5); }
+  to { text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 30px rgba(96, 165, 250, 0.5); }
+}
+
+.stat-item p {
+  opacity: 0.8;
+  font-size: 16px;
+  color: #cbd5e1;
+}
+
+/* ============ 页脚 ============ */
+.footer {
+  background: linear-gradient(to bottom, #1e293b, #0f172a);
+  color: #94a3b8;
+  padding: 50px 0 20px;
+  position: relative;
+  border-top: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-col h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #94a3b8;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.footer-col a:hover {
+  color: #60a5fa;
+  text-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #334155;
+  font-size: 14px;
+}
+
+/* ============ 手机端适配 ============ */
+/* 当屏幕宽度小于 768 像素时（手机和平板），执行这里的样式 */
+@media (max-width: 768px) {
+
+  /* 手机端：显示菜单按钮，隐藏菜单链接 */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;       /* 默认隐藏 */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;  /* 菜单从横排变竖排 */
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
+  .nav-links.show {
+    display: flex;       /* 点击按钮后显示 */
+  }
+
+  /* 手机端：横幅文字变小 */
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* 手机端：卡片从4列/3列变成1列 */
+  .features-grid,
+  .products-grid,
+  .stats-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .stat-item h3 {
+    font-size: 32px;
+  }
+}
