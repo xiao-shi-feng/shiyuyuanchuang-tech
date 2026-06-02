@@ -48,7 +48,7 @@
       <div class="container">
         <div class="articles-grid">
           <!-- 文章1 -->
-          <article class="article-card">
+          <article class="article-card" data-category="tech">
             <div class="article-image">
               <span class="article-icon">🔥</span>
             </div>
@@ -64,7 +64,7 @@
           </article>
 
           <!-- 文章2 -->
-          <article class="article-card">
+          <article class="article-card" data-category="company">
             <div class="article-image">
               <span class="article-icon">🚀</span>
             </div>
@@ -80,7 +80,7 @@
           </article>
 
           <!-- 文章3 -->
-          <article class="article-card">
+          <article class="article-card" data-category="tech">
             <div class="article-image">
               <span class="article-icon">💡</span>
             </div>
@@ -96,7 +96,7 @@
           </article>
 
           <!-- 文章4 -->
-          <article class="article-card">
+          <article class="article-card" data-category="industry">
             <div class="article-image">
               <span class="article-icon">📊</span>
             </div>
@@ -112,7 +112,7 @@
           </article>
 
           <!-- 文章5 -->
-          <article class="article-card">
+          <article class="article-card" data-category="tech">
             <div class="article-image">
               <span class="article-icon">🌐</span>
             </div>
@@ -128,7 +128,7 @@
           </article>
 
           <!-- 文章6 -->
-          <article class="article-card">
+          <article class="article-card" data-category="company">
             <div class="article-image">
               <span class="article-icon">🎯</span>
             </div>
@@ -174,8 +174,8 @@
         </div>
         <div class="footer-col">
           <h4>联系方式</h4>
-          <p>📞 电话：请补充您的联系方式</p>
-          <p>📧 邮箱：请补充您的邮箱地址</p>
+          <p>📞 电话：15732165171</p>
+          <p>📧 邮箱：383200247@qq.com</p>
           <p>📍 地址：河北省石家庄市高新区丘头镇徐村南昌路322号</p>
         </div>
       </div>
@@ -187,14 +187,20 @@
 
   <script src="js/main.js"></script>
   <script>
-    // 文章分类筛选功能（占位，实际需要完善）
+    // 文章分类筛选功能
     function filterCategory(category) {
-      const buttons = document.querySelectorAll('.category-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+      var buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(function(btn) { btn.classList.remove('active'); });
       event.target.classList.add('active');
 
-      // 这里应该添加实际的筛选逻辑
-      console.log('筛选分类:', category);
+      var articles = document.querySelectorAll('.article-card');
+      articles.forEach(function(article) {
+        if (category === 'all' || article.dataset.category === category) {
+          article.style.display = '';
+        } else {
+          article.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
