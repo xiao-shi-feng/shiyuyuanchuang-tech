@@ -173,15 +173,17 @@ body {
     使用公司照片作为背景
     padding-top: 140px 是因为导航栏占了 70px，要留出空间
   */
-  background-image: url('images/logo-bg.jpg');
+  background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)),
+                    url('images/logo-bg.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
   padding: 140px 20px 100px;
   position: relative;
   overflow: hidden;
+  min-height: 500px;
 }
 
 .hero::before {
@@ -203,13 +205,16 @@ body {
   50% { transform: scale(1.1); opacity: 0.8; }
 }
 
+.hero .hero-content {
+  position: relative;
+  z-index: 3;
+}
+
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
   text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
   animation: glow-text 3s ease-in-out infinite alternate;
-  position: relative;
-  z-index: 2;
 }
 
 .hero p {
@@ -217,8 +222,6 @@ body {
   margin-bottom: 30px;
   opacity: 0.9;
   color: #cbd5e1;
-  position: relative;
-  z-index: 2;
 }
 
 .hero .btn {
@@ -227,8 +230,7 @@ body {
   border: none;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   transition: all 0.3s;
-  position: relative;
-  z-index: 2;
+  margin-top: 20px;
 }
 
 .hero .btn:hover {
