@@ -170,10 +170,13 @@ body {
 /* ============ 横幅区域（Hero） ============ */
 .hero {
   /*
-    深蓝到紫蓝的渐变背景，更有科技感
+    使用公司照片作为背景
     padding-top: 140px 是因为导航栏占了 70px，要留出空间
   */
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background-image: url('images/logo-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   text-align: center;
   padding: 140px 20px 100px;
@@ -184,12 +187,15 @@ body {
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-  animation: pulse 4s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+    rgba(15, 23, 42, 0.85) 0%,
+    rgba(30, 41, 59, 0.75) 50%,
+    rgba(51, 65, 85, 0.85) 100%);
+  z-index: 1;
 }
 
 @keyframes pulse {
@@ -202,6 +208,8 @@ body {
   margin-bottom: 20px;
   text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
   animation: glow-text 3s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 2;
 }
 
 .hero p {
@@ -209,6 +217,8 @@ body {
   margin-bottom: 30px;
   opacity: 0.9;
   color: #cbd5e1;
+  position: relative;
+  z-index: 2;
 }
 
 .hero .btn {
@@ -217,6 +227,8 @@ body {
   border: none;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   transition: all 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
 .hero .btn:hover {
