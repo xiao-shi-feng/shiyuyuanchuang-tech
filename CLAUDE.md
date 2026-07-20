@@ -1,42 +1,49 @@
 # CLAUDE.md
 
-# 石家庄时煜源创科技有限公司 官网
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-纯静态公司官网，暗色科技风，托管于 GitHub Pages。
+## 项目概述
+
+石家庄时煜源创科技有限公司的静态官网，纯 HTML/CSS/JS，无构建工具、无框架、无后端。
+
+## 本地预览
+
+直接在浏览器中打开 `index.html` 即可。无需安装依赖，无需启动服务器。
+
+```bash
+# Windows 快速打开
+start index.html
+```
 
 ## 项目结构
 
 ```
-├── index.html          # 首页（Hero + 优势 + 服务 + 数据 + CTA）
-├── products.html       # 产品服务（技术服务/软件开发/互联网销售 + 流程）
-├── about.html          # 关于我们（公司简介 + 优势 + 业务范围 + 联系）
-├── blog.html           # 新闻动态（分类筛选 + 文章列表 + 分页）
-├── contact.html        # 联系我们（联系方式 + 在线留言 + 地图 + FAQ）
-├── css/style.css       # 全站统一样式（暗色科技风 · 高级版）
-├── js/main.js          # 交互 + 共享组件注入（导航栏/页脚动态加载）
+├── index.html          # 首页
+├── products.html       # 产品服务
+├── about.html          # 关于我们
+├── blog.html           # 新闻动态
+├── contact.html        # 联系我们 + 在线留言表单
+├── css/style.css       # 全站统一样式（暗色科技风主题）
+├── js/main.js          # 交互逻辑（手机端菜单切换）
 └── images/
-    └── logo-bg.jpg     # 背景图（可替换）
+    ├── logo-bg.jpg     # 首页横幅背景图
+    └── logo-text.css   # logo 文字样式
 ```
 
-## 新架构要点
+## 架构要点
 
-- **共享组件**：导航栏和页脚通过 JS 注入（`main.js`），改一处全站同步。
-  每个页面只需放 `<div id="header-placeholder"></div>` 和 `<div id="footer-placeholder"></div>`
-- **当前页高亮**：body 上设置 `data-page="index"`（或 products/about/blog/contact），JS 自动高亮对应导航项
-- **滚动动画**：元素加 `class="animate-on-scroll"`，进入视口时自动淡入
-- **响应式断点**：768px 以下切换移动端布局
-- **表单**：提交后打开邮件客户端（mailto），内容自动填充
+- **单 CSS 文件控制全站样式**：`css/style.css` 包含所有页面样式，修改样式只需改这一个文件
+- **响应式断点**：768px 以下切换为移动端布局（网格从多列变单列，导航变汉堡菜单）
+- **页面共享组件**：导航栏和页脚在每个 HTML 页面中重复（非模板引擎），修改时需同步更新所有 5 个 HTML 文件
+- **固定导航栏**：`position: fixed`，页面内容需 `padding-top` 避免被遮挡
+- **动画效果**：CSS `@keyframes` 实现网格背景移动、文字发光、数据扫描线等效果
 
-## 联系信息（真实数据）
+## 已知占位/未完成项
 
-- 电话：15732165171
-- 邮箱：383200247@qq.com
-- 地址：河北省石家庄市高新区丘头镇徐村南昌路322号
-- 信用代码：91130101MAEPR5THX4
+- `contact.html` 的表单提交只有 `alert` 提示，无后端接收（需要后端服务支持）
 
-## 修改要点
+## 修改规范
 
-1. 导航/页脚改 `js/main.js` 中的 `HEADER_HTML` / `FOOTER_HTML`
-2. 新增页面：复制 `data-page="xxx"` 结构 + `header-placeholder` + `footer-placeholder`
-3. 删除 `images/logo-text.css`（不再需要）
-4. 背景图 `images/logo-bg.jpg` 可替换，引用在首页 hero 区（当前未使用，可随时加上）
+- 新增页面时复制已有 HTML 文件的结构（header + main + footer），确保导航栏 `class="active"` 指向正确
+- 联系信息真实数据：电话 15732165171，邮箱 383200247@qq.com，地址 河北省石家庄市高新区丘头镇徐村南昌路322号
+- 修改共享部分（导航/页脚）时，必须同步更新全部 5 个 HTML 文件

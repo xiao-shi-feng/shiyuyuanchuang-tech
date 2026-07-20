@@ -4,40 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>新闻动态 - 石家庄时煜源创科技有限公司</title>
-  <meta name="description" content="关注时煜源创最新动态、行业资讯与技术前沿分享。">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    .category-tabs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
-    .category-btn { padding: 8px 24px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; color: var(--text-secondary); font-size: 14px; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-sans); }
-    .category-btn:hover { border-color: var(--accent-1); color: var(--text-primary); }
-    .category-btn.active { background: var(--gradient-1); color: white; border-color: transparent; }
-    .articles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .article-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; transition: all 0.4s ease; }
-    .article-card:hover { transform: translateY(-6px); border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
-    .article-icon-area { padding: 32px; text-align: center; font-size: 40px; background: linear-gradient(135deg, rgba(56,152,236,0.06), rgba(99,102,241,0.06)); border-bottom: 1px solid var(--border-color); }
-    .article-content { padding: 20px 24px 24px; }
-    .article-meta { display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-    .article-meta .cat { padding: 2px 10px; border-radius: 10px; background: rgba(56,152,236,0.1); color: var(--accent-1); font-size: 11px; }
-    .article-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-    .article-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
-    .read-more { color: var(--accent-1); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
-    .read-more:hover { gap: 8px; }
-    .pagination { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
-    .page-btn { width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-secondary); font-size: 14px; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-sans); }
-    .page-btn:hover { border-color: var(--accent-1); color: var(--text-primary); }
-    .page-btn.active { background: var(--gradient-1); color: white; border-color: transparent; }
-    @media (max-width: 1024px) { .articles-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
-  </style>
 </head>
-<body data-page="blog">
-
-  <div id="header-placeholder"></div>
+<body>
+  <!-- 导航栏 -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">时煜源创科技</a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="products.html">产品服务</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="blog.html" class="active">新闻动态</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
 
   <main>
+    <!-- 新闻动态页面标题 -->
     <section class="page-hero">
       <div class="container">
         <h1 class="page-title">新闻动态</h1>
@@ -45,72 +31,112 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- 文章分类 -->
+    <section class="blog-categories">
       <div class="container">
-        <!-- 分类筛选 -->
-        <div class="category-tabs animate-on-scroll">
-          <button class="category-btn active" onclick="filterCategory('all',this)">全部</button>
-          <button class="category-btn" onclick="filterCategory('tech',this)">技术前沿</button>
-          <button class="category-btn" onclick="filterCategory('company',this)">公司动态</button>
-          <button class="category-btn" onclick="filterCategory('industry',this)">行业资讯</button>
+        <div class="category-tabs">
+          <button class="category-btn active" onclick="filterCategory('all')">全部</button>
+          <button class="category-btn" onclick="filterCategory('tech')">技术前沿</button>
+          <button class="category-btn" onclick="filterCategory('company')">公司动态</button>
+          <button class="category-btn" onclick="filterCategory('industry')">行业资讯</button>
         </div>
+      </div>
+    </section>
 
-        <!-- 文章列表 -->
-        <div class="articles-grid" id="articlesGrid">
-          <article class="article-card animate-on-scroll" data-category="tech" style="transition-delay:0.1s">
-            <div class="article-icon-area">🔥</div>
+    <!-- 文章列表 -->
+    <section class="blog-articles">
+      <div class="container">
+        <div class="articles-grid">
+          <!-- 文章1 -->
+          <article class="article-card" data-category="tech">
+            <div class="article-image">
+              <span class="article-icon">🔥</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-12-01</span><span class="cat">技术前沿</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-12-01</span>
+                <span class="article-category">技术前沿</span>
+              </div>
               <h3>人工智能在软件开发中的应用趋势</h3>
               <p>探讨AI技术如何改变传统软件开发流程，包括智能代码生成、自动化测试等应用场景...</p>
               <a href="#" class="read-more">阅读更多 →</a>
             </div>
           </article>
 
-          <article class="article-card animate-on-scroll" data-category="company" style="transition-delay:0.2s">
-            <div class="article-icon-area">🚀</div>
+          <!-- 文章2 -->
+          <article class="article-card" data-category="company">
+            <div class="article-image">
+              <span class="article-icon">🚀</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-11-28</span><span class="cat">公司动态</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-11-28</span>
+                <span class="article-category">公司动态</span>
+              </div>
               <h3>时煜源创科技有限公司正式成立</h3>
               <p>石家庄时煜源创科技有限公司正式注册成立，致力于为中小企业提供专业的技术解决方案...</p>
               <a href="#" class="read-more">阅读更多 →</a>
             </div>
           </article>
 
-          <article class="article-card animate-on-scroll" data-category="tech" style="transition-delay:0.3s">
-            <div class="article-icon-area">💡</div>
+          <!-- 文章3 -->
+          <article class="article-card" data-category="tech">
+            <div class="article-image">
+              <span class="article-icon">💡</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-11-25</span><span class="cat">技术前沿</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-11-25</span>
+                <span class="article-category">技术前沿</span>
+              </div>
               <h3>低代码开发平台的优势与挑战</h3>
               <p>分析低代码开发平台如何帮助企业快速构建应用，以及在实际应用中需要注意的问题...</p>
               <a href="#" class="read-more">阅读更多 →</a>
             </div>
           </article>
 
-          <article class="article-card animate-on-scroll" data-category="industry" style="transition-delay:0.1s">
-            <div class="article-icon-area">📊</div>
+          <!-- 文章4 -->
+          <article class="article-card" data-category="industry">
+            <div class="article-image">
+              <span class="article-icon">📊</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-11-20</span><span class="cat">行业资讯</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-11-20</span>
+                <span class="article-category">行业资讯</span>
+              </div>
               <h3>2025年中小企业数字化转型趋势报告</h3>
               <p>最新行业报告显示，越来越多的中小企业开始重视数字化转型，IT投资持续增长...</p>
               <a href="#" class="read-more">阅读更多 →</a>
             </div>
           </article>
 
-          <article class="article-card animate-on-scroll" data-category="tech" style="transition-delay:0.2s">
-            <div class="article-icon-area">🌐</div>
+          <!-- 文章5 -->
+          <article class="article-card" data-category="tech">
+            <div class="article-image">
+              <span class="article-icon">🌐</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-11-15</span><span class="cat">技术前沿</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-11-15</span>
+                <span class="article-category">技术前沿</span>
+              </div>
               <h3>云计算技术如何助力企业降本增效</h3>
               <p>云计算技术为企业提供了弹性计算资源，有效降低IT成本，提升业务效率...</p>
               <a href="#" class="read-more">阅读更多 →</a>
             </div>
           </article>
 
-          <article class="article-card animate-on-scroll" data-category="company" style="transition-delay:0.3s">
-            <div class="article-icon-area">🎯</div>
+          <!-- 文章6 -->
+          <article class="article-card" data-category="company">
+            <div class="article-image">
+              <span class="article-icon">🎯</span>
+            </div>
             <div class="article-content">
-              <div class="article-meta"><span>2025-11-10</span><span class="cat">公司动态</span></div>
+              <div class="article-meta">
+                <span class="article-date">2025-11-10</span>
+                <span class="article-category">公司动态</span>
+              </div>
               <h3>时煜源创荣获行业创新奖提名</h3>
               <p>凭借在技术服务领域的创新实践，时煜源创科技荣获2025年度行业创新奖提名...</p>
               <a href="#" class="read-more">阅读更多 →</a>
@@ -119,7 +145,7 @@
         </div>
 
         <!-- 分页 -->
-        <div class="pagination animate-on-scroll">
+        <div class="pagination">
           <button class="page-btn active">1</button>
           <button class="page-btn">2</button>
           <button class="page-btn">3</button>
@@ -129,14 +155,43 @@
     </section>
   </main>
 
-  <div id="footer-placeholder"></div>
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>石家庄时煜源创科技有限公司</h4>
+          <p>技术服务 | 软件开发 | 互联网销售</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="products.html">产品服务</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <p>📞 电话：15732165171</p>
+          <p>📧 邮箱：383200247@qq.com</p>
+          <p>📍 地址：河北省石家庄市高新区丘头镇徐村南昌路322号</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 石家庄时煜源创科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="js/main.js"></script>
   <script>
-    // 文章分类筛选
-    function filterCategory(category, btn) {
+    // 文章分类筛选功能
+    function filterCategory(category) {
       var buttons = document.querySelectorAll('.category-btn');
-      buttons.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+      buttons.forEach(function(btn) { btn.classList.remove('active'); });
+      event.target.classList.add('active');
 
       var articles = document.querySelectorAll('.article-card');
       articles.forEach(function(article) {
