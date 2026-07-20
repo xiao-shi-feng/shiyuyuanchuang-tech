@@ -8,7 +8,10 @@ const HEADER_HTML = `
 <header class="header">
   <nav class="nav container">
     <a href="index.html" class="logo">
-      <span class="logo-icon">✦</span>
+      <span class="logo-mark">
+        <span class="logo-mark-sq"></span>
+        <span class="logo-mark-inner"></span>
+      </span>
       <span class="logo-text">时煜源创<small>科技</small></span>
     </a>
     <ul class="nav-links" id="navLinks">

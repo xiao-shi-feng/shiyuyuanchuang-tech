@@ -9,52 +9,44 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body data-page="index">
 
-  <!-- 导航栏占位 - JS 注入 -->
   <div id="header-placeholder"></div>
 
   <main>
     <!-- ============================================
-         Hero 区域
+         Hero · 全屏居中 · 光效背景
          ============================================ -->
     <section class="hero">
+      <!-- 浮动光球 -->
+      <div class="hero-light hero-light-1"></div>
+      <div class="hero-light hero-light-2"></div>
+      <div class="hero-light hero-light-3"></div>
+
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            科技创新 · 驱动未来
-          </div>
-          <h1>
-            以技术之力<br>
-            赋能<span class="highlight">数字化转型</span>
-          </h1>
-          <p>
-            石家庄时煜源创科技有限公司 —— 专注技术服务、软件开发与互联网销售，
-            为中小企业提供专业的技术解决方案，助力企业实现数字化升级。
-          </p>
-          <div class="hero-actions">
-            <a href="products.html" class="btn btn-primary btn-lg">了解服务 →</a>
-            <a href="contact.html" class="btn btn-outline btn-lg">联系我们</a>
-          </div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          科技创新 · 驱动未来
+        </div>
+        <h1>
+          以技术之力<br>
+          赋能<span class="highlight">数字化转型</span>
+        </h1>
+        <p>
+          石家庄时煜源创科技有限公司 —— 专注技术服务、软件开发与互联网销售，<br>
+          为中小企业提供专业的技术解决方案，助力企业实现数字化升级。
+        </p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">了解服务</a>
+          <a href="contact.html" class="btn btn-outline">联系我们</a>
         </div>
       </div>
-      <!-- 右侧装饰网格 -->
-      <div class="hero-visual">
-        <div class="hero-grid">
-          <div class="hero-grid-item" style="animation-delay:0.1s">⚡</div>
-          <div class="hero-grid-item" style="animation-delay:0.2s">🔧</div>
-          <div class="hero-grid-item" style="animation-delay:0.3s">💻</div>
-          <div class="hero-grid-item" style="animation-delay:0.4s">🌐</div>
-          <div class="hero-grid-item" style="animation-delay:0.5s">📊</div>
-          <div class="hero-grid-item" style="animation-delay:0.6s">🛡️</div>
-          <div class="hero-grid-item" style="animation-delay:0.7s">☁️</div>
-          <div class="hero-grid-item" style="animation-delay:0.8s">🤖</div>
-          <div class="hero-grid-item" style="animation-delay:0.9s">🚀</div>
-        </div>
-      </div>
+
+      <!-- 底部扫描线 -->
+      <div class="scan-line" style="bottom:30%"></div>
+      <div class="hero-divider"></div>
     </section>
 
     <!-- ============================================
@@ -69,22 +61,35 @@
         </div>
         <div class="features-grid">
           <div class="feature-card animate-on-scroll" style="transition-delay:0.1s">
-            <div class="feature-icon">💡</div>
+            <div class="feature-deco">
+              <span class="feature-deco-ring"></span>
+              <span class="feature-deco-dot"></span>
+            </div>
             <h3>技术服务</h3>
             <p>提供全方位技术服务、咨询与解决方案，助力企业数字化转型。</p>
           </div>
           <div class="feature-card animate-on-scroll" style="transition-delay:0.2s">
-            <div class="feature-icon">💻</div>
+            <div class="feature-deco">
+              <span class="feature-deco-ring"></span>
+              <span class="feature-deco-dot"></span>
+            </div>
             <h3>软件开发</h3>
             <p>定制化软件开发，满足企业个性化需求，提升业务效率。</p>
           </div>
           <div class="feature-card animate-on-scroll" style="transition-delay:0.3s">
-            <div class="feature-icon">🛍️</div>
+            <div class="feature-deco">
+              <span class="feature-deco-ring"></span>
+              <span class="feature-deco-dot"></span>
+              <span class="feature-deco-dot2"></span>
+            </div>
             <h3>互联网销售</h3>
             <p>专业的电商平台解决方案，助力线上业务增长。</p>
           </div>
           <div class="feature-card animate-on-scroll" style="transition-delay:0.4s">
-            <div class="feature-icon">🔧</div>
+            <div class="feature-deco">
+              <span class="feature-deco-ring"></span>
+              <span class="feature-deco-dot"></span>
+            </div>
             <h3>技术推广</h3>
             <p>持续关注前沿技术，确保为客户提供最新技术解决方案。</p>
           </div>
@@ -104,7 +109,10 @@
         </div>
         <div class="products-grid">
           <div class="product-card animate-on-scroll" style="transition-delay:0.1s">
-            <div class="product-icon-area">💻</div>
+            <div class="product-deco-area">
+              <div class="product-deco-symbol">◆ ◇ ◆</div>
+              <div class="product-deco-line"></div>
+            </div>
             <div class="product-body">
               <h3>技术服务</h3>
               <p>技术咨询、交流、转让与推广，全流程技术支持。</p>
@@ -112,7 +120,10 @@
             </div>
           </div>
           <div class="product-card animate-on-scroll" style="transition-delay:0.2s">
-            <div class="product-icon-area">💾</div>
+            <div class="product-deco-area">
+              <div class="product-deco-symbol">■ □ ■</div>
+              <div class="product-deco-line"></div>
+            </div>
             <div class="product-body">
               <h3>软件开发</h3>
               <p>定制化软件开发服务，包括小程序、Web应用、移动端等。</p>
@@ -120,7 +131,10 @@
             </div>
           </div>
           <div class="product-card animate-on-scroll" style="transition-delay:0.3s">
-            <div class="product-icon-area">🌐</div>
+            <div class="product-deco-area">
+              <div class="product-deco-symbol">● ○ ●</div>
+              <div class="product-deco-line"></div>
+            </div>
             <div class="product-body">
               <h3>互联网销售</h3>
               <p>电商平台搭建与运营支持，线上业务全方位解决方案。</p>
@@ -165,16 +179,14 @@
         <h2>准备好开启数字化转型了吗？</h2>
         <p>联系我们，获取专属技术解决方案</p>
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-primary btn-lg">立即咨询 →</a>
-          <a href="about.html" class="btn btn-outline btn-lg">了解更多</a>
+          <a href="contact.html" class="btn btn-primary">立即咨询</a>
+          <a href="about.html" class="btn btn-outline">了解更多</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 页脚占位 - JS 注入 -->
   <div id="footer-placeholder"></div>
-
   <script src="js/main.js"></script>
 </body>
 </html>
