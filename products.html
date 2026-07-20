@@ -4,27 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>产品服务 - 石家庄时煜源创科技有限公司</title>
+  <meta name="description" content="时煜源创提供技术服务、软件开发、互联网销售等全方位技术解决方案。">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .service-list { display: flex; flex-direction: column; gap: 40px; margin-bottom: 60px; }
+    .service-item { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; transition: all 0.4s ease; }
+    .service-item:hover { border-color: var(--border-glow); box-shadow: var(--shadow-glow); }
+    .service-item.reverse .service-visual { order: -1; }
+    .service-visual { display: flex; align-items: center; justify-content: center; }
+    .service-icon-box { width: 120px; height: 120px; background: linear-gradient(135deg, rgba(56,152,236,0.1), rgba(99,102,241,0.1)); border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+    .service-info h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+    .service-info p { color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+    .service-info ul { list-style: none; }
+    .service-info ul li { padding: 6px 0; color: var(--text-secondary); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+    .service-info ul li::before { content: '▸'; color: var(--accent-1); font-weight: bold; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .step { text-align: center; padding: 28px 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); transition: all 0.3s ease; }
+    .step:hover { border-color: var(--border-glow); transform: translateY(-4px); }
+    .step-num { width: 44px; height: 44px; margin: 0 auto 12px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: white; }
+    .step h4 { font-size: 16px; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .service-item { grid-template-columns: 1fr; padding: 24px; }
+      .service-item.reverse .service-visual { order: 0; }
+      .process-steps { grid-template-columns: 1fr; }
+      .service-visual { display: none; }
+    }
+  </style>
 </head>
-<body>
-  <!-- 导航栏（复用首页的） -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="index.html" class="logo">时煜源创科技</a>
-      <ul class="nav-links">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="products.html" class="active">产品服务</a></li>
-        <li><a href="about.html">关于我们</a></li>
-        <li><a href="blog.html">新闻动态</a></li>
-        <li><a href="contact.html">联系我们</a></li>
-      </ul>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    </nav>
-  </header>
+<body data-page="products">
 
-  <!-- 产品服务页面内容 -->
+  <div id="header-placeholder"></div>
+
   <main>
-    <!-- 页面标题 -->
     <section class="page-hero">
       <div class="container">
         <h1 class="page-title">产品与服务</h1>
@@ -33,10 +48,15 @@
     </section>
 
     <!-- 技术服务 -->
-    <section class="services">
+    <section class="section" id="tech">
       <div class="container">
-        <h2 class="section-title">技术服务</h2>
-        <div class="service-detail">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">01</span>
+          <h2 class="section-title">技术服务</h2>
+          <p class="section-desc">全方位的技术咨询与落地支持</p>
+        </div>
+        <div class="service-item animate-on-scroll">
+          <div class="service-visual"><div class="service-icon-box">💡</div></div>
           <div class="service-info">
             <h3>全方位技术支持</h3>
             <p>我们提供从技术咨询到技术落地的全流程服务：</p>
@@ -46,23 +66,22 @@
               <li><strong>技术转让：</strong>将先进技术传递给企业，提升技术能力</li>
               <li><strong>技术推广：</strong>前沿技术引入，助力企业转型升级</li>
             </ul>
-            <p>我们的团队拥有丰富的行业经验，能够快速理解您的需求，提供最合适的解决方案。</p>
-          </div>
-          <div class="service-visual">
-            <div class="service-icon">💡</div>
+            <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">我们的团队拥有丰富的行业经验，能够快速理解您的需求，提供最合适的解决方案。</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 软件开发 -->
-    <section class="services">
+    <section class="section section-alt" id="dev">
       <div class="container">
-        <h2 class="section-title">软件开发</h2>
-        <div class="service-detail">
-          <div class="service-visual">
-            <div class="service-icon">💻</div>
-          </div>
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">02</span>
+          <h2 class="section-title">软件开发</h2>
+          <p class="section-desc">量身定制，打造企业专属数字工具</p>
+        </div>
+        <div class="service-item reverse animate-on-scroll">
+          <div class="service-visual"><div class="service-icon-box">💻</div></div>
           <div class="service-info">
             <h3>定制化软件开发</h3>
             <p>根据企业需求，量身定制各类软件产品：</p>
@@ -72,17 +91,22 @@
               <li><strong>移动应用：</strong>iOS、Android 原生应用</li>
               <li><strong>系统集成：</strong>企业内部系统整合与数据对接</li>
             </ul>
-            <p>采用最新的技术栈，确保产品性能、安全和可扩展性。</p>
+            <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">采用最新的技术栈，确保产品性能、安全和可扩展性。</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 互联网销售 -->
-    <section class="services">
+    <section class="section" id="ecom">
       <div class="container">
-        <h2 class="section-title">互联网销售</h2>
-        <div class="service-detail">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">03</span>
+          <h2 class="section-title">互联网销售</h2>
+          <p class="section-desc">打通线上渠道，实现业务增长</p>
+        </div>
+        <div class="service-item animate-on-scroll">
+          <div class="service-visual"><div class="service-icon-box">🛍️</div></div>
           <div class="service-info">
             <h3>电商解决方案</h3>
             <p>为传统企业打造线上销售渠道，实现数字化转型：</p>
@@ -92,80 +116,32 @@
               <li><strong>物流对接：</strong>与主流物流公司无缝对接</li>
               <li><strong>数据分析：</strong>销售数据分析，优化经营策略</li>
             </ul>
-            <p>让您的产品触达更广泛的客户群体，实现业务增长。</p>
-          </div>
-          <div class="service-visual">
-            <div class="service-icon">🛍️</div>
+            <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">让您的产品触达更广泛的客户群体，实现业务增长。</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 服务流程 -->
-    <section class="process">
+    <section class="section section-alt" id="process">
       <div class="container">
-        <h2 class="section-title">服务流程</h2>
-        <div class="process-steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h4>需求沟通</h4>
-            <p>深入了解您的需求和目标</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h4>方案设计</h4>
-            <p>制定详细的技术方案</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h4>项目实施</h4>
-            <p>专业的团队负责开发实施</p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h4>交付上线</h4>
-            <p>确保项目稳定运行</p>
-          </div>
-          <div class="step">
-            <div class="step-number">5</div>
-            <h4>持续支持</h4>
-            <p>7×24小时技术支持</p>
-          </div>
+        <div class="section-header animate-on-scroll">
+          <span class="section-tag">流程</span>
+          <h2 class="section-title">服务流程</h2>
+          <p class="section-desc">从需求到交付，每一步都专业可靠</p>
+        </div>
+        <div class="process-steps animate-on-scroll">
+          <div class="step"><div class="step-num">1</div><h4>需求沟通</h4><p>深入了解您的需求和目标</p></div>
+          <div class="step"><div class="step-num">2</div><h4>方案设计</h4><p>制定详细的技术方案</p></div>
+          <div class="step"><div class="step-num">3</div><h4>项目实施</h4><p>专业的团队负责开发实施</p></div>
+          <div class="step"><div class="step-num">4</div><h4>交付上线</h4><p>确保项目稳定运行</p></div>
+          <div class="step"><div class="step-num">5</div><h4>持续支持</h4><p>7×24小时技术支持</p></div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 页脚（复用首页的） -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>石家庄时煜源创科技有限公司</h4>
-          <p>技术服务 | 软件开发 | 互联网销售</p>
-        </div>
-        <div class="footer-col">
-          <h4>快速链接</h4>
-          <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="products.html">产品服务</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="contact.html">联系我们</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>联系方式</h4>
-          <p>📞 电话：15732165171</p>
-          <p>📧 邮箱：383200247@qq.com</p>
-          <p>📍 地址：河北省石家庄市高新区丘头镇徐村南昌路322号</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 石家庄时煜源创科技有限公司 版权所有</p>
-      </div>
-    </div>
-  </footer>
-
+  <div id="footer-placeholder"></div>
   <script src="js/main.js"></script>
 </body>
 </html>
