@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>grok-build - SpaceXAI打造的Rust终端AI编程助手，全交互TUI体验。 | 时煜源创科技 · GitHub 精选</title>
+<title>grok-build - AI编程助手，像老司机一样帮你写代码、查资料、跑任务。 | 时煜源创科技 · GitHub 精选</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
@@ -18,6 +18,9 @@
   h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
   .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
   .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
   .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
   .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
   .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
@@ -74,34 +77,39 @@
   <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">xai-org/grok-build</text>
   <circle cx="340" cy="305" r="5" fill="#dea584"/>
   <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Rust</text>
-  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 23,579</text>
-  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">SpaceXAI&#x27;s coding agent harness and TUI. Fullscreen, mouse i</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 23,589</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">SpaceXAI&#x27;s coding agent harnes</text>
 </svg></div>
-  <h1>grok-build：SpaceXAI打造的Rust终端AI编程助手，全交互TUI体验。</h1>
-  <div class="tagline">xai-org/grok-build · Rust · ★ 23,579</div>
+  <h1>grok-build：AI编程助手，像老司机一样帮你写代码、查资料、跑任务。</h1>
+  <div class="tagline">xai-org/grok-build · Rust · ★ 23,589</div>
   <div class="meta">发布日期：2026-07-31　|　数据来源：GitHub</div>
 
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你有一个特别聪明的助手，它不仅能听懂你的话，还能自己动手帮你写程序、查资料、甚至帮你处理一些重复性的工作。这个助手就像是一个经验丰富的程序员，它能理解你的需求，然后自动去执行相应的操作。你只需要告诉它你想做什么，剩下的事情它就会帮你搞定。</p>
+  </div>
+
   <div class="data-card">
-    <div class="data-item"><div class="num">★ 23,579</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">★ 23,589</div><div class="lab">Star</div></div>
     <div class="data-item"><div class="num">4,483</div><div class="lab">Fork</div></div>
     <div class="data-item"><div class="num">Rust</div><div class="lab">主语言</div></div>
     <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
   </div>
 
   <h2 class="sec">这是什么</h2>
-  <p>Grok Build是SpaceXAI开发的基于终端的AI编码代理工具，以全屏TUI（文本用户界面）形式运行。它理解代码库、编辑文件、执行Shell命令、搜索网络并管理长任务，支持交互式、无头脚本/CI或嵌入编辑器（通过Agent Client Protocol）。本质是一个能‘动手’写代码、调试、甚至联网查资料的智能终端助手，让开发者无需离开命令行即可高效完成复杂任务。</p>
+  <p>Grok Build 是一个由 SpaceXAI 开发的基于终端的 AI 编程代理工具。它提供了一个全屏幕的文本用户界面（TUI），可以理解你的代码库，编辑文件，执行 shell 命令，搜索网络信息，并管理长时间运行的任务。无论是通过交互式使用，还是在脚本/CI 中以无头模式运行，甚至是嵌入到编辑器中，Grok Build 都能提供强大的支持。这个项目的主要语言是 Rust，并且已经获得了相当数量的星标，显示出其在开发者社区中的受欢迎程度。</p>
 
   <h2 class="sec">核心功能</h2>
-  <ul class="feats"><li><span class="dot"></span>全屏交互式TUI界面</li>
-<li><span class="dot"></span>自动编辑文件与执行Shell命令</li>
-<li><span class="dot"></span>联网搜索与多任务管理</li>
-<li><span class="dot"></span>支持嵌入式Agent客户端协议</li></ul>
+  <ul class="feats"><li><span class="dot"></span>全屏交互界面，操作直观</li>
+<li><span class="dot"></span>支持文件编辑和命令执行</li>
+<li><span class="dot"></span>能够搜索网络信息</li>
+<li><span class="dot"></span>管理长时间运行的任务</li></ul>
 
   <h2 class="sec">能用来做什么</h2>
-  <p>适用于需要快速原型开发、自动化脚本编写、远程服务器调试或持续集成环境中的开发者。在终端工作流中，它能替代部分IDE功能，尤其适合习惯命令行操作、追求效率的高级用户。通过理解项目上下文，它能辅助重构、修复bug、生成测试用例，甚至在CI/CD流水线中自动处理构建问题，极大提升开发与运维效率。</p>
+  <p>Grok Build 适用于多种场景。对于开发者来说，它可以作为一个高效的编程助手，帮助快速编写和调试代码。在持续集成/持续部署（CI/CD）流程中，Grok Build 可以自动化执行各种任务，提高开发效率。此外，它还可以用于教学和学习编程，帮助学生更好地理解编程概念和实践技能。总之，Grok Build 是一个多功能的工具，能够满足不同用户的需求。</p>
 
   <h2 class="sec">技术亮点</h2>
-  <p>项目采用Rust语言构建，确保高性能与内存安全。其架构模块化清晰：`xai-grok-pager`负责TUI渲染与交互，`xai-grok-shell`处理代理运行时与headless模式，`xai-grok-tools`封装文件编辑、终端执行等能力，`xai-grok-workspace`管理文件系统与版本控制。支持DotSlash实现工具沙箱化，保障执行安全性。同时，通过MCP（Model Control Protocol）扩展技能与插件，具备高度可定制性，是面向未来AI原生开发工具的典范。</p>
+  <p>Grok Build 的技术亮点在于其强大的 TUI 设计和对 Rust 语言的利用。TUI 提供了直观的交互体验，使得用户可以方便地查看和操作代码。同时，Rust 语言的高性能和安全性保证了 Grok Build 的稳定性和可靠性。此外，Groks Build 还支持多种功能扩展，如插件和钩子等，可以根据用户需求进行定制化开发。这些技术特点使得 Grok Build 成为一个非常实用且灵活的编程辅助工具。</p>
 
   <h2 class="sec">示例速览</h2>
 <div class="code-card"><div class="code-block"><div class="code-head">sh</div><pre>curl -fsSL https://x.ai/cli/install.sh | bash   # macOS / Linux / Git Bash
@@ -111,9 +119,9 @@ grok --version</pre></div><div class="code-block"><div class="code-head">sh</div
   /usr/bin/env dotslash --help   # sanity check</pre></div></div>
 
   <h2 class="sec">如何上手</h2>
-  <p>安装推荐直接使用官方脚本：`curl -fsSL https://x.ai/cli/install.sh | bash`（macOS/Linux）或 `irm https://x.ai/cli/install.ps1 | iex`（Windows）。安装后输入`grok --version`验证。首次运行会自动打开浏览器认证。若需从源码构建，先安装Rust和DotSlash（`cargo install dotslash`），再运行`cargo run -p xai-grok-pager-bin`启动TUI界面。</p>
+  <p>要开始使用 Grok Build，你可以按照以下步骤操作：首先，确保你的系统上安装了 Rust 编译器。然后，通过提供的安装脚本下载并安装 Grok Build 的二进制文件。安装完成后，打开终端并输入 `grok` 命令来启动 Grok Build。首次运行时，它会引导你完成身份验证过程。之后，你就可以开始使用 Grok Build 的各种功能了。如果你希望从源代码构建 Grok Build，也可以参考 README 中的说明进行操作。</p>
 
-  <div class="langs"><span class="chip">Rust 100%</span> <span class="chip">Python 0%</span> <span class="chip">JavaScript 0%</span></div>
+  <div class="langs"><span class="chip">Rust 100%</span></div>
 
   <div class="gh-btns">
     <a class="gh-btn" href="https://github.com/xai-org/grok-build" target="_blank">去 GitHub 看原项目</a>
