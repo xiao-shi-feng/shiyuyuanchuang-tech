@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex-Dream-Skin - 给 Codex 桌面端换一张会呼吸的脸，写代码也要有氛围感。 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#f1e05a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#f1e05a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#f1e05a" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#f1e05a" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#f1e05a" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">Codex-Dream-Skin</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">Fei-Away/Codex-Dream-Skin</text>
+  <circle cx="340" cy="305" r="5" fill="#f1e05a"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">JavaScript</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 12,791</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Codex Dream Skin</text>
+</svg></div>
+  <h1>Codex-Dream-Skin：给 Codex 桌面端换一张会呼吸的脸，写代码也要有氛围感。</h1>
+  <div class="tagline">Fei-Away/Codex-Dream-Skin · JavaScript · ★ 12,791</div>
+  <div class="meta">发布日期：2026-07-31　|　数据来源：GitHub</div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 12,791</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">1,278</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">JavaScript</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">未知</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>Codex Dream Skin 是一个专为 Codex 桌面客户端设计的主题换肤工具，它允许用户通过外部注入的方式改变界面外观，而无需修改官方安装包或二进制文件。项目支持 macOS 和 Windows，提供丰富的社区主题库（DreamSkin.cc），用户可在线预览、一键换肤或导入自定义主题包。其核心理念是「一张图，一种心情」，让开发者在编码时拥有个性化、沉浸式的视觉体验。所有操作均基于本地 CDP 注入，安全可控，不触碰 API 配置或模型设置，适合追求美学与效率兼顾的开发者。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>真·可交互：侧栏、输入框等均为原生控件，非静态贴图</li>
+<li><span class="dot"></span>真背景层：16:9 全屏壁纸自动适配焦点与安全区</li>
+<li><span class="dot"></span>一键换肤：网页触发本地安装，带完整校验与恢复机制</li>
+<li><span class="dot"></span>主题创作 Studio：浏览器内编辑配色、背景、CSS，导出 ZIP</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>适用于日常编码、创意写作、系统调试等需要长时间面对 IDE 的场景。开发者可根据心情切换不同风格——如哥特科幻、日系清新、极简白昼等，提升专注力与愉悦感。同时支持个人背景图导入，结合 AI 生成素材打造专属工作台。对于团队协作或个人品牌展示，统一主题也能增强视觉识别度。无论是深夜 coding 还是晨间灵感迸发，都能让屏幕成为你的情绪延伸。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>项目采用本地回环 CDP（Chrome DevTools Protocol）注入技术，在不修改官方 App 的前提下实现深度样式定制。所有主题包包含 `theme.json`、`theme.css` 与背景图，并通过 SHA-256 校验确保完整性；Safe CSS 限制仅作用于 12 个注册部件，避免破坏 UI 结构。一键换肤流程中，网页链接携带唯一版本 ID，App 主动拉取并验证签名，防止恶意注入。此外，macOS 菜单栏与 Windows 托盘提供实时主题管理，支持保存、切换、还原，甚至手动移动主题目录至本地路径，兼具灵活性与安全性。</p>
+
+  
+
+  <h2 class="sec">如何上手</h2>
+  <p>普通用户无需编程基础，直接从 GitHub Releases 下载对应平台安装包（.dmg 或 .exe），按向导完成一次安装后退出官方 Codex。首次启动时若遇安全提示，依文档放行即可。安装后从菜单栏或托盘选择「导入主题 ZIP」或访问 dreamskin.cc 浏览社区主题，点击「一键换肤」即可应用。开发者可运行脚本从源码构建，或参考 docs/ 中的提示词与模板生成自己的背景图。建议优先使用 v1.5.5+ 客户端以支持完整功能。</p>
+
+  <div class="langs"><span class="chip">JavaScript 41%</span> <span class="chip">PowerShell 28%</span> <span class="chip">Shell 14%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/Fei-Away/Codex-Dream-Skin" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://www.dreamskin.cc" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
