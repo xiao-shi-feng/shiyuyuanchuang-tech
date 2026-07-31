@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>grok-build - SpaceXAI打造的Rust终端AI编程助手，全交互TUI体验。 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#dea584" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#dea584" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#dea584" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#dea584" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#dea584" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">grok-build</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">xai-org/grok-build</text>
+  <circle cx="340" cy="305" r="5" fill="#dea584"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Rust</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 23,579</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">SpaceXAI&#x27;s coding agent harness and TUI. Fullscreen, mouse i</text>
+</svg></div>
+  <h1>grok-build：SpaceXAI打造的Rust终端AI编程助手，全交互TUI体验。</h1>
+  <div class="tagline">xai-org/grok-build · Rust · ★ 23,579</div>
+  <div class="meta">发布日期：2026-07-31　|　数据来源：GitHub</div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 23,579</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">4,483</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Rust</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>Grok Build是SpaceXAI开发的基于终端的AI编码代理工具，以全屏TUI（文本用户界面）形式运行。它理解代码库、编辑文件、执行Shell命令、搜索网络并管理长任务，支持交互式、无头脚本/CI或嵌入编辑器（通过Agent Client Protocol）。本质是一个能‘动手’写代码、调试、甚至联网查资料的智能终端助手，让开发者无需离开命令行即可高效完成复杂任务。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>全屏交互式TUI界面</li>
+<li><span class="dot"></span>自动编辑文件与执行Shell命令</li>
+<li><span class="dot"></span>联网搜索与多任务管理</li>
+<li><span class="dot"></span>支持嵌入式Agent客户端协议</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>适用于需要快速原型开发、自动化脚本编写、远程服务器调试或持续集成环境中的开发者。在终端工作流中，它能替代部分IDE功能，尤其适合习惯命令行操作、追求效率的高级用户。通过理解项目上下文，它能辅助重构、修复bug、生成测试用例，甚至在CI/CD流水线中自动处理构建问题，极大提升开发与运维效率。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>项目采用Rust语言构建，确保高性能与内存安全。其架构模块化清晰：`xai-grok-pager`负责TUI渲染与交互，`xai-grok-shell`处理代理运行时与headless模式，`xai-grok-tools`封装文件编辑、终端执行等能力，`xai-grok-workspace`管理文件系统与版本控制。支持DotSlash实现工具沙箱化，保障执行安全性。同时，通过MCP（Model Control Protocol）扩展技能与插件，具备高度可定制性，是面向未来AI原生开发工具的典范。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">sh</div><pre>curl -fsSL https://x.ai/cli/install.sh | bash   # macOS / Linux / Git Bash
+irm https://x.ai/cli/install.ps1 | iex          # Windows PowerShell
+grok --version</pre></div><div class="code-block"><div class="code-head">sh</div><pre>cargo install dotslash
+  # or: prebuilt packages — https://dotslash-cli.com/docs/installation/
+  /usr/bin/env dotslash --help   # sanity check</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>安装推荐直接使用官方脚本：`curl -fsSL https://x.ai/cli/install.sh | bash`（macOS/Linux）或 `irm https://x.ai/cli/install.ps1 | iex`（Windows）。安装后输入`grok --version`验证。首次运行会自动打开浏览器认证。若需从源码构建，先安装Rust和DotSlash（`cargo install dotslash`），再运行`cargo run -p xai-grok-pager-bin`启动TUI界面。</p>
+
+  <div class="langs"><span class="chip">Rust 100%</span> <span class="chip">Python 0%</span> <span class="chip">JavaScript 0%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/xai-org/grok-build" target="_blank">去 GitHub 看原项目</a>
+    
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
