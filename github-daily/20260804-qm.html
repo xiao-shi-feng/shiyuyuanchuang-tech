@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>qm - 为初创公司打造的多人协作AI工作平台，让每个员工都有专属智能助手 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3178c6" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3178c6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3178c6" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3178c6" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3178c6" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">qm</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">yc-software/qm</text>
+  <circle cx="340" cy="305" r="5" fill="#3178c6"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">TypeScript</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 9,717</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Multiplayer agent harness for </text>
+</svg></div>
+  <h1>qm：为初创公司打造的多人协作AI工作平台，让每个员工都有专属智能助手</h1>
+  <div class="tagline">yc-software/qm · TypeScript · ★ 9,717</div>
+  <div class="meta">发布日期：2026-08-04　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你公司里的每个员工都配了一个专属的私人助理。这个助理不仅记得每个人的工作习惯，还能帮他们查资料、写邮件、跑程序，甚至帮你盯着项目进度。最关键的是，这个助理既能在电脑上跟你聊天，也能在你们公司用的聊天软件里随时待命。而且每个人的助理都是独立的，不会互相干扰，但大家又能在同一个群里协作。就像给整个公司配备了一支看不见的超级团队，每个人都有自己的小秘书，大家又能一起干活。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 9,717</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">1,026</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">TypeScript</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">MIT</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>QM是一个专为初创公司设计的多人AI代理工作平台。传统AI助手通常只为个人服务，但QM让整家公司都能用上AI——每个员工拥有独立的工作空间，包括专属的记忆、文件、定时任务和权限设置，彼此隔离互不干扰。同时，员工又能在Slack频道、群聊或项目空间中与AI协作。它支持多种AI驱动框架，用户可自由选择底层模型，部署不绑定单一供应商。平台提供Web界面和Slack集成，员工可在两者间无缝切换，身份和配置保持一致。管理员能统一设置安全策略、可用工具和模型范围。QM采用插件化架构，核心是通用的，公司特有的配置、工具和技能都放在部署目录中，通过CLI初始化和验证。安全方面提供三种模式：严格模式需人工审批每个操作，自动模式由分类器筛查外部数据，危险模式则完全放开。所有操作都有审计日志。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>个人与共享双轨工作空间——每个人有独立AI助手，同时支持团队协作</li>
+<li><span class="dot"></span>Slack与Web无缝切换——同一身份和配置在两个平台间自由切换</li>
+<li><span class="dot"></span>灵活的安全策略——严格/自动/危险三级控制，所有操作可审计</li>
+<li><span class="dot"></span>多框架兼容——支持Pi、OpenCode、Codex、Claude Code等多种AI驱动</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>初创公司日常运营中，QM能大幅提升效率。员工可以用它搜索内部文档、邮件和数据库，快速找到所需信息。AI能学习你的写作风格，自动整理收件箱并生成回复草稿。开发团队可以让AI在仓库中运行测试、创建PR、监控CI状态。项目管理时，AI能在共享频道中跟踪进度、发布更新和提醒后续事项。公司还能用QM搭建内部应用，定向发布给相关人员，并保持数据实时更新。定时任务功能让AI在无人值守时也能持续工作，比如定期整理数据或发送报告。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>QM采用插件化架构设计，核心引擎完全通用，所有公司特定配置、工具和技能都封装在部署目录中，通过CLI进行验证和部署。这种设计让不同公司的实例可以独立定制，同时保持核心代码的一致性。安全模型借鉴了本地编码代理的思路，AI以员工身份操作，所有行为可审计。三种安全模式（严格/自动/危险）满足不同场景需求，预定义命令策略确保即使危险模式下也不会执行递归删除等危险操作。技术栈采用TypeScript + Node.js + Fastify构建HTTP服务，Slack插件使用Bolt框架，Web界面基于Vite和Lit渲染。PostgreSQL作为持久化存储，管理会话、记忆和队列。每个作用域都有独立的沙箱环境，确保工具安装和运行隔离。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">mermaid</div><pre>flowchart LR
+  DB[(&quot;Postgres&lt;br/&gt;sessions · memory · queue&quot;)]
+
+  subgraph CORE[&quot;Headless core&quot;]
+    API[&quot;API · identity · policy · scheduler&quot;]
+    LOOP[&quot;Agent loop&lt;br/&gt;(Pi, OpenCode, Claude Code)&quot;]
+    API &lt;--&gt; LOOP
+  end
+
+  SBX[&quot;Per-scope sandbox&lt;br/&gt;files · tools · logged-in services&quot;]
+
+  DB &lt;--&gt; API
+  LOOP &lt;--&gt; SBX</pre></div><div class="code-block"><div class="code-head">bash</div><pre>npm exec --yes --package=@yc-software/qm@latest -- \
+  qm init . --org &lt;slug&gt; --target &lt;fly-or-aws&gt;
+npm install</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>使用QM需要创建组织级别的部署仓库。首先运行初始化命令，指定组织标识和目标云平台（Fly或AWS），CLI会引导完成基础设施配置、Web登录、连接器凭证设置和Slack集成等步骤。整个过程无需克隆源码仓库。初始化完成后，部署运行在运营商自己的云账户中。对于需要深度定制的组织，可以创建私有分支，将完整代码库放在一处，工程师和AI代理可以共同阅读核心代码和自定义内容。通过update-qm技能可以合并上游更新，通过upstream-pr技能可以将通用修复提交回主仓库。</p>
+
+  <div class="langs"><span class="chip">TypeScript 92%</span> <span class="chip">HTML 5%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/yc-software/qm" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://qm.ycombinator.com" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
