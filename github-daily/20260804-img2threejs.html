@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>img2threejs - 一张照片变代码，浏览器里直接跑 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3572A5" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3572A5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3572A5" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3572A5" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3572A5" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">img2threejs</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">img2threejs/img2threejs</text>
+  <circle cx="340" cy="305" r="5" fill="#3572A5"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Python</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 9,467</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Rebuild the object in a refere</text>
+</svg></div>
+  <h1>img2threejs：一张照片变代码，浏览器里直接跑</h1>
+  <div class="tagline">img2threejs/img2threejs · Python · ★ 9,467</div>
+  <div class="meta">发布日期：2026-08-04　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你有一张物品的照片，比如一把小刀或者一个玩具。这个项目就像是一位超级厉害的工匠，他看完这张照片后，不用去工厂里打模具，也不用买现成的模型，而是直接用手里的工具，用代码一点点把这个东西重新搭出来。搭出来的东西不是死板的图片，而是可以在电脑屏幕里转来转去、甚至能动的立体模型。整个过程完全靠程序自动完成，你只需要给一张照片，剩下的它自己搞定。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 9,467</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">714</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Python</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>这是一个将参考图片中的物体重建为代码驱动的Three.js三维模型的开源工具。与传统3D建模不同，它不依赖摄影测量、网格提取或下载现成模型，而是通过程序化代码重建物体。用户只需提供一张参考图片，系统会自动分析物体的形状、材质、细节，然后生成一段TypeScript代码，这段代码可以在浏览器中直接运行，呈现出可交互、可动画的三维模型。
+
+项目采用分阶段流水线设计，从初步轮廓搭建到材质、光照、交互优化，每一步都有严格的质量检查。系统会先列出物体所有关键细节（如光泽度、倒角、螺丝、磨损痕迹等），确保每个细节都能在代码中找到对应实现，而不是用贴图糊弄。对于人物或角色，还支持面部特征匹配和姿态重建。整个流程由Python脚本驱动，可在Claude Code等AI编程助手中直接调用。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>代码重建而非网格导出，生成可直接在浏览器运行的TypeScript代码</li>
+<li><span class="dot"></span>分阶段流水线加质量门禁，每步自动校验确保还原度</li>
+<li><span class="dot"></span>细节清单系统，强制枚举并实现所有关键视觉特征</li>
+<li><span class="dot"></span>支持对象、角色、混合分类，适配不同物体类型</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>这个项目适合需要快速生成3D资产的场景。游戏开发者可以用它从概念图快速生成可交互的3D模型，省去手动建模的时间。网页设计师可以为产品展示页生成轻量级3D模型，用户可以直接在浏览器中旋转查看。动画创作者可以快速搭建场景中的道具和角色。此外，教育领域也可用于将实物照片转化为可交互的教学模型。核心价值在于将传统需要数小时甚至数天的建模工作，压缩到几分钟内完成，且生成的是代码而非二进制文件，便于后续修改和集成。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>项目的核心技术亮点在于其分阶段自校正流水线。从blockout（轮廓搭建）到structural（结构）、form（形态）、material（材质）、surface（表面）、lighting（光照）、interaction（交互）、optimization（优化），每个阶段都有明确的输出和检查点。系统内置detail inventory机制，强制枚举物体的身份定义细节，任何无法映射到真实组件的细节都会被拒绝。对于CS2武器等特定类别，还有专门的审查门控，防止用贴图替代真实结构。Token效率设计也是亮点：Python脚本负责验证和门禁，AI模型仅用于视觉判断和代码生成，大幅降低调用成本。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>git clone https://github.com/img2threejs/img2threejs.git ~/.claude/skills/img2threejs</pre></div><div class="code-block"><div class="code-head">code</div><pre>/img2threejs Rebuild this object as a Three.js model, keep the proportions, angles, and colours.</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>使用本项目非常简单。首先将仓库克隆到本地，推荐放在AI编程助手的技能目录中。然后在Claude Code等工具中，直接附上物体图片并输入指令即可开始重建。系统会自动分类物体类型、执行细节清单、分阶段生成代码，并在每个阶段展示对比效果供审查。你也可以通过更详细的指令来控制重建的精确度、材质表现和动画需求。整个过程无需安装额外依赖，仅需Python 3.10以上版本。</p>
+
+  <div class="langs"><span class="chip">Python 100%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/img2threejs/img2threejs" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://img2threejs.github.io/img2threejs-showcase/" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
