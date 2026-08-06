@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>codex-security - AI驱动的代码安全卫士，自动扫描修复漏洞 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3178c6" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3178c6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3178c6" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3178c6" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3178c6" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">codex-security</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">openai/codex-security</text>
+  <circle cx="340" cy="305" r="5" fill="#3178c6"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">TypeScript</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 8,615</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">OpenAI&#x27;s Codex Security CLI an</text>
+</svg></div>
+  <h1>codex-security：AI驱动的代码安全卫士，自动扫描修复漏洞</h1>
+  <div class="tagline">openai/codex-security · TypeScript · ★ 8,615</div>
+  <div class="meta">发布日期：2026-08-06　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象你请了一位超级细心的保安来检查你的家。这位保安会逐屋逐室地查看，找出任何可能让坏人钻空子的地方——比如窗户没关好、门锁有毛病。发现问题后，他不仅会告诉你哪里有问题，还会直接帮你把窗户关好、把门锁修好。这个项目就是代码世界的保安，它用人工智能技术帮你检查程序代码里有没有安全漏洞，找到问题后还能自动帮你修复，让黑客无机可乘。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 8,615</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">604</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">TypeScript</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>Codex Security是OpenAI推出的代码安全扫描工具，包含命令行工具和TypeScript开发包两部分。它专门用于发现、验证和修复代码中的安全漏洞。与传统的安全扫描工具不同，它内置了人工智能能力，能够像一位经验丰富的安全专家一样理解代码逻辑，找出潜在的安全风险，并直接给出修复方案。工具支持多种AI模型提供商，包括OpenAI、Anthropic、AWS Bedrock等，用户可以根据需求灵活选择。扫描结果会以报告形式保存，方便团队查看和追踪。工具还具备比较功能，可以对比两次扫描的结果，自动识别新增漏洞、已修复问题和持续存在的问题。对于企业用户，还支持容器化批量扫描，可以在持续集成环境中自动化运行安全检测。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>AI智能扫描与自动修复，不仅能发现问题还能直接给出解决方案</li>
+<li><span class="dot"></span>支持多模型提供商，可灵活选用OpenAI、Anthropic、AWS Bedrock等</li>
+<li><span class="dot"></span>扫描结果对比功能，自动追踪漏洞的新增、修复和复发状态</li>
+<li><span class="dot"></span>容器化批量扫描支持，适配企业级持续集成工作流</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>这个项目非常适合软件开发团队在代码上线前进行安全审查。比如，你在开发一个网站或移动应用，上线前可以用它全面扫描代码，找出可能泄露用户数据或容易被攻击的漏洞。对于企业安全团队，可以在持续集成流程中自动运行扫描，确保每次代码更新都不会引入新的安全风险。此外，安全研究人员也可以用它在大规模代码库中快速定位高危漏洞。相比传统安全工具，它的优势在于不仅能发现问题，还能直接修复，大大节省了人工排查和修复的时间成本。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>Codex Security的技术架构有几个显著亮点。首先，它采用多智能体协作模式，支持深度扫描模式，可以配置工作线程数和子代理数量，实现并行化安全分析。其次，工具内置了智能停止机制，当连续多次扫描未发现新漏洞时自动终止，避免无效计算。第三，它支持多种认证方式，包括ChatGPT登录和API密钥，且CI环境中使用的API密钥不会持久化存储，保障凭证安全。第四，工具提供了详细的诊断日志功能，可通过环境变量控制日志级别，帮助开发者排查问题。最后，它支持知识库共享功能，可以将安全文档传递给所有扫描任务，实现企业级安全知识沉淀。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>npm install @openai/codex-security
+npx @openai/codex-security login
+npx @openai/codex-security scan .
+npx @openai/codex-security scan . --model gpt-5.6-terra --effort high
+npx @openai/codex-security scan . --mode deep --workers 2 --subagents 0 --stop-after-no-new 3 --max-discovery-runs 10</pre></div><div class="code-block"><div class="code-head">bash</div><pre>export OPENROUTER_API_KEY=&quot;&lt;your-openrouter-api-key&gt;&quot;
+npx @openai/codex-security scan . --provider openrouter --model anthropic/claude-sonnet-4.5
+
+export FIREWORKS_API_KEY=&quot;&lt;your-fireworks-api-key&gt;&quot;
+npx @openai/codex-security scan . --provider fireworks --model accounts/fireworks/models/qwen3-235b-a22b
+
+export AWS_BEARER_TOKEN_BEDROCK=&quot;&lt;your-bedrock-api-key&gt;&quot;
+export AWS_REGION=&quot;us-east-2&quot;
+npx @openai/codex-security scan . --provider amazon-bedrock --model openai.gpt-5.6-luna</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>使用Codex Security非常简单。首先确保你的电脑安装了Node.js 22.13.0以上版本或Node.js 24/26版本，以及Python 3.10以上版本。然后运行npm install安装工具包，接着执行登录命令完成身份验证。最后使用扫描命令对目标代码目录进行检测，可以指定扫描模式和使用的AI模型。对于持续集成环境，只需设置对应的API密钥环境变量即可自动运行扫描，无需交互式登录。</p>
+
+  <div class="langs"><span class="chip">TypeScript 62%</span> <span class="chip">Python 30%</span> <span class="chip">JavaScript 7%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/openai/codex-security" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://developers.openai.com/codex/security" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
