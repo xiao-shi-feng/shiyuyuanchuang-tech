@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aos-ce - 给AI智能体打造的开源操作系统，让智能体安全协作、行为可查 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#dea584" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#dea584" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#dea584" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#dea584" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#dea584" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">aos-ce</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">unicity-aos/aos-ce</text>
+  <circle cx="340" cy="305" r="5" fill="#dea584"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Rust</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 8,574</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">AOS Community Edition: the ope</text>
+</svg></div>
+  <h1>aos-ce：给AI智能体打造的开源操作系统，让智能体安全协作、行为可查</h1>
+  <div class="tagline">unicity-aos/aos-ce · Rust · ★ 8,574</div>
+  <div class="meta">发布日期：2026-08-06　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你家里请了好几个帮手机器人，有的负责做饭，有的负责打扫，有的负责照看孩子。问题来了：你不知道它们到底在干什么，它们之间会不会串通乱来，有没有人越权做了不该做的事。这个项目就是给这些机器人建了一个小区，给每个机器人分配固定的活动范围，装上监控摄像头，记录它们做的每件事。就像给智能体装上了导航系统和行为记录仪，让它们既能高效配合干活，又不会乱闯禁区、干坏事。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 8,574</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">17</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Rust</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>这是一个专门为AI智能体设计的开源操作系统，用Rust语言编写。传统上，AI智能体（比如各种AI助手）运行在各自独立的环境中，缺乏统一的管理和安全控制。这个项目提供了一个标准化的运行环境，让智能体可以像普通程序一样被安装、管理和监控。它的核心设计理念是&#x27;胶囊化&#x27;——把各种功能封装成独立的胶囊模块，每个胶囊都有明确的权限边界，不能越权访问其他资源。系统内置了完整的审计追踪功能，可以记录智能体的每一步操作，确保所有行为都可检查、可追溯。通过MCP协议，它可以与主流AI客户端无缝对接，同时支持多用户、多智能体的隔离运行，每个智能体都有独立的身份和权限空间。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>胶囊化架构：将功能封装为独立模块，每个模块有明确的权限边界和最小特权原则</li>
+<li><span class="dot"></span>完整审计追踪：内置审计系统，记录智能体每一步操作，确保行为可检查可追溯</li>
+<li><span class="dot"></span>MCP协议支持：与Codex、Claude、Grok等主流AI客户端无缝对接</li>
+<li><span class="dot"></span>多主体隔离：支持多用户、多智能体的权限隔离，每个主体有独立身份空间</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>企业级AI部署场景下，需要统一管理多个智能体，确保它们不会越权访问敏感数据或执行危险操作。个人开发者可以构建自己的智能体工作流，通过组合不同功能的胶囊模块来实现复杂任务。安全敏感环境如金融、医疗领域，需要严格的权限控制和操作审计，任何异常行为都能被及时发现。教育场景下，学生可以学习如何构建安全的智能体系统，理解权限隔离和审计追踪的重要性。开发者还可以利用Forge工具链，让智能体在运行中自我学习、自我扩展，主动构建新的能力模块来改进自身工作流。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>采用Rust语言开发，从底层保证内存安全和并发安全，避免常见漏洞。系统通过&#x27;胶囊&#x27;模型实现细粒度的权限控制，每个功能模块都有明确的边界，遵循最小特权原则。内置的审计系统可以追踪智能体的每一步操作，确保行为完全可追溯。支持MCP协议，可以与主流AI客户端无缝集成，降低接入成本。多主体隔离机制允许不同用户或智能体在同一个系统中安全运行，互不干扰。Forge工具链让智能体能够自我学习和扩展，通过构建新的胶囊模块来增强自身能力。严格的发布流程要求每个版本都经过签名验证和运行时兼容性检查，确保系统安全可靠。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">text</div><pre>crates/       Product CLI, HTTP API, control client, and shared product code
+capsules/     First-party production capsules
+distros/      Community distribution manifests and release metadata
+docs/         Product and operator documentation</pre></div><div class="code-block"><div class="code-head">sh</div><pre>curl --proto &#x27;=https&#x27; --tlsv1.2 -fsSL https://aos.unicity.ai/install.sh | sh
+aos init</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>首先通过官方安装脚本一键部署，命令会安装aos命令行工具和运行时环境。然后运行初始化命令创建第一个智能体实例，可以选择在线或离线模式。使用状态查看命令检查系统运行情况。通过MCP服务命令连接到主流AI客户端开始使用。对于进阶用户，可以使用构建命令学习如何创建新的胶囊模块，利用Forge工具让智能体自我学习和扩展能力。建议先阅读官方文档了解胶囊模型和工作空间布局，再逐步深入配置和定制。</p>
+
+  <div class="langs"><span class="chip">Rust 83%</span> <span class="chip">Python 9%</span> <span class="chip">Shell 8%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/unicity-aos/aos-ce" target="_blank">去 GitHub 看原项目</a>
+    
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
