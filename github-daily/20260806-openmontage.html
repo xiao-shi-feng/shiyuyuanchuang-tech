@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenMontage - 把AI编程助手变成视频制作工作室，一句话生成专业级视频 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3572A5" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3572A5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3572A5" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3572A5" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3572A5" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">OpenMontage</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">calesthio/OpenMontage</text>
+  <circle cx="340" cy="305" r="5" fill="#3572A5"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Python</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 45,310</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">World&#x27;s first open-source, age</text>
+</svg></div>
+  <h1>OpenMontage：把AI编程助手变成视频制作工作室，一句话生成专业级视频</h1>
+  <div class="tagline">calesthio/OpenMontage · Python · ★ 45,310</div>
+  <div class="meta">发布日期：2026-08-06　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你有一个全能的小助手，你只需要告诉它你想做什么样的视频，比如&#x27;做一个关于量子计算的六十秒动画解说&#x27;，它就会自动帮你完成所有事情：查资料、写剧本、找素材、配音、加字幕、剪辑，最后交给你一个完整的视频。这就像你请了一个专业的影视制作团队，但只需要动嘴说一句话就行。而且这个助手是完全免费的开源工具，任何人都可以使用。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 45,310</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">5,595</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Python</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">AGPL-3.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>OpenMontage是世界上第一个开源的智能体视频制作系统。它的核心理念是将你日常使用的AI编程助手（如Claude Code、Cursor、Copilot等）转变为一个完整的视频制作工作室。用户只需输入自然语言描述，系统就能自动完成从研究、剧本创作、素材生成、配音配乐到最终剪辑渲染的全流程。它支持多种视频制作路径：一是基于真实影视素材的纪录片式制作，系统会从免费素材库中检索实际运动片段进行剪辑；二是基于AI生成图像的视频，通过多张AI图片配合转场特效和摄像机运动生成动画效果；三是完全由AI生成的视频片段。系统内置了12条制作流水线、超过100个工具和700多个智能体技能文件，能够自动处理配音、字幕、音乐等各个环节，并在交付前进行多维度质量自检。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>自然语言驱动：一句话描述需求，AI自动完成研究、剧本、素材、配音、剪辑全流程</li>
+<li><span class="dot"></span>真实素材制作：从免费素材库检索真实运动片段，剪辑成完整视频，非图片轮播</li>
+<li><span class="dot"></span>智能体审核机制：每个环节都有质量自检，配音、字幕、音频电平自动验证</li>
+<li><span class="dot"></span>可视化制作看板：本地实时展示制作进度，场景级审批流程，支持回放整个制作过程</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>这个项目非常适合内容创作者、自媒体运营者和教育科普工作者。比如，你可以快速制作科普动画视频，将复杂的科学概念转化为通俗易懂的视觉内容；也可以制作纪录片风格的短视频，自动从素材库中选取合适的真实画面；还可以为产品制作广告宣传片，只需描述需求即可生成包含配音、字幕和音乐的完整视频。对于个人创作者而言，它大幅降低了视频制作的技术门槛和时间成本，让一个人就能完成过去需要整个团队才能完成的工作。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>OpenMontage的技术架构有几个显著亮点。首先是多路径视频生成能力，既能制作基于真实素材的纪录片，也能生成AI动画视频，还能直接生成视频片段。其次是智能体驱动的工作流，系统内置了700多个技能文件，能够自动选择最优工具组合。第三是质量保障机制，每个制作环节都有多维度自检，包括视频格式验证、帧采样、音频电平分析和字幕检查。第四是可视化的制作看板（Backlot），实时展示制作进度，支持场景级审批和制作回放。最后，系统支持多种AI编程助手，用户可以使用自己熟悉的工具来驱动整个制作流程。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">text</div><pre>&quot;Here&#x27;s a YouTube Short I love. Make me something like this, but about quantum computing.&quot;</pre></div><div class="code-block"><div class="code-head">bash</div><pre>python -m backlot open                  # the library — every project on disk
+python -m backlot open &lt;project-id&gt;     # one production&#x27;s live board
+python scripts/backlot_simulate_run.py  # no production yet? watch a simulated one live</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>使用OpenMontage非常简单。首先确保你的电脑安装了Python 3.10以上版本、FFmpeg和Node.js 18以上版本。然后克隆仓库并运行安装命令。接着打开你熟悉的AI编程助手（如Claude Code、Cursor等），直接输入你想制作的视频描述即可。比如&#x27;做一个六十秒的动画解说视频&#x27;或&#x27;制作一个关于城市雨景的纪录片&#x27;。系统会自动完成后续所有工作。如果你想先看效果，还可以粘贴一个你喜欢的视频链接，让AI分析其风格后制作类似内容。</p>
+
+  <div class="langs"><span class="chip">Python 66%</span> <span class="chip">HTML 21%</span> <span class="chip">JavaScript 6%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/calesthio/OpenMontage" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://www.openmontage.video/" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
