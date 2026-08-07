@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>anydoc - 一个极速文档转换神器，将十几种办公文档一键转为Markdown | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#dea584" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#dea584" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#dea584" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#dea584" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#dea584" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">anydoc</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">firecrawl/anydoc</text>
+  <circle cx="340" cy="305" r="5" fill="#dea584"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Rust</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 9,454</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Convert Word, PowerPoint, Exce</text>
+</svg></div>
+  <h1>anydoc：一个极速文档转换神器，将十几种办公文档一键转为Markdown</h1>
+  <div class="tagline">firecrawl/anydoc · Rust · ★ 9,454</div>
+  <div class="meta">发布日期：2026-08-07　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你手头有一堆不同格式的文档——有的像Word写的报告，有的像PPT做的演示文稿，还有的像Excel表格，甚至可能有PDF文件。这些文档格式各不相同，就像不同的语言一样，很难统一处理。anydoc就像一个万能翻译官，不管你把什么格式的文档丢给它，它都能快速准确地翻译成同一种格式——Markdown。这个工具特别快，处理一份文档只需要几毫秒，比眨眼还快。而且它支持十几种不同的文档格式，包括Word、PPT、Excel、PDF等等，几乎涵盖了所有常见的办公文档类型。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 9,454</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">443</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Rust</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">MIT</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>anydoc是一个高性能的文档转换工具库，由Rust语言编写，能够将多种办公文档格式统一转换为Markdown格式。它支持Word（.doc/.docx/.docm）、PowerPoint（.ppt/.pptx等）、Excel（.xls/.xlsx等）、OpenDocument、RTF、EPUB、CSV和PDF等十几种格式。这个工具的核心价值在于&#x27;统一输出&#x27;——无论输入什么格式的文档，都会通过一个共享的文档模型，最终输出格式一致的Markdown。这意味着文档中的标题、列表、表格、图片、脚注等内容都会被完整地保留和转换。anydoc由Firecrawl公司开发，主要用于将办公文档转换为大语言模型可处理的格式。它提供了多种使用方式：命令行工具、Node.js库、Python库和WebAssembly浏览器版本，满足不同开发场景的需求。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>极速转换：纯Rust编写，中位转换时间不到5毫秒，比竞品快一个数量级</li>
+<li><span class="dot"></span>全格式支持：唯一支持全部14种格式的转换工具，涵盖所有常见办公文档</li>
+<li><span class="dot"></span>智能格式检测：根据文件内容自动识别格式，即使文件扩展名错误也能正确转换</li>
+<li><span class="dot"></span>多语言绑定：提供Node.js、Python、Rust和WebAssembly四种绑定，适配不同开发场景</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>anydoc非常适合需要批量处理文档的场景。对于企业用户，可以将历史文档库中的各种格式文件统一转换为Markdown，便于后续归档和分析。对于AI应用开发者，可以快速将用户上传的文档转换为大语言模型可处理的格式，提升应用效率。对于内容创作者和知识管理者，可以将不同来源的文档统一格式，建立标准化的知识库。此外，anydoc还支持Agent技能集成，让AI助手能够直接读取和处理各种文档格式，扩展了智能助手的能力边界。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>anydoc采用纯Rust实现，不依赖机器学习模型或外部服务，确保转换过程快速且隐私安全。它通过内容检测而非文件扩展名来判断格式，有效处理了命名不规范的文件。文档模型支持完整的结构保留，包括标题锚点、嵌套列表、合并单元格表格、脚注和演讲者备注等。Node.js绑定在libuv线程池中运行，不会阻塞事件循环；Python绑定释放GIL，保证多线程并发性能。PDF支持内置，文本型PDF可直接本地转换，无需OCR服务。benchmark显示，anydoc在14种格式的测试中全面领先，综合得分81分，远超其他工具。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>npx skills add firecrawl/anydoc</pre></div><div class="code-block"><div class="code-head">bash</div><pre>npx @firecrawl/anydoc report.docx               # Markdown to stdout
+npx @firecrawl/anydoc slides.pptx -o slides.md  # or to a file
+npx @firecrawl/anydoc - --format csv &lt; data.csv # read stdin</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>命令行用户可直接使用npx运行：npx @firecrawl/anydoc report.docx，首次运行会自动下载预编译二进制文件。Node.js项目需安装@firecrawl/anydoc包，然后调用toMarkdown函数，支持从文件路径或字节数据转换。Python用户安装firecrawl-anydoc后使用anydoc.to_markdown方法。WebAssembly版本适合浏览器环境，通过npm安装@firecrawl/anydoc-wasm包。所有绑定都提供格式检测功能，对于CSV等无签名格式的文档，需要显式指定格式名称。</p>
+
+  <div class="langs"><span class="chip">Rust 76%</span> <span class="chip">Python 16%</span> <span class="chip">JavaScript 5%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/firecrawl/anydoc" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://firecrawl.github.io/anydoc/" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
