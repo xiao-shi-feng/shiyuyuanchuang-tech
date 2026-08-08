@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi-K3 - 全球首个开源三万亿参数智能体模型，重新定义前沿智能 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#58a6ff" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#58a6ff" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#58a6ff" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">Kimi-K3</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">MoonshotAI/Kimi-K3</text>
+  <circle cx="340" cy="305" r="5" fill="#58a6ff"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Git</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 8,201</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Open Frontier Intelligence</text>
+</svg></div>
+  <h1>Kimi-K3：全球首个开源三万亿参数智能体模型，重新定义前沿智能</h1>
+  <div class="tagline">MoonshotAI/Kimi-K3 · Unknown · ★ 8,201</div>
+  <div class="meta">发布日期：2026-08-08　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>这就好比给电脑装上了一个超级大脑。以前的电脑只能听懂简单的指令，而这个新模型就像是一个拥有百万字记忆力的全能助手。你给它一堆复杂的资料，它能像人一样看懂图片、视频和文字，然后帮你完成从写代码到做研究等各种高难度任务。它最厉害的地方在于，这个超级大脑是公开免费的，任何人都可以下载研究，就像把一本绝世武功秘籍公之于众，让大家都来学习进步，而不是只藏在少数人的手里。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 8,201</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">622</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Unknown</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">NOASSERTION</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>Kimi K3 是由 Moonshot AI 开发的开源前沿智能模型，也是目前该团队最强大的成果。它是一个原生多模态智能体模型，总参数量高达 2.8 万亿，但每次推理只激活其中约 1040 亿个参数，这种设计既保证了强大的计算能力，又提高了效率。它支持长达 100 万 token 的上下文窗口，意味着它可以一次性阅读和理解海量的文本、图像和视频内容。与传统模型不同，Kimi K3 具备原生视觉能力，能够直接理解多模态信息，并在长周期的编程、知识工作和推理任务中自主运行。它采用了创新的 Kimi Delta Attention 和 Attention Residuals 架构，结合稳定的 Latent MoE 框架，显著提升了扩展效率。作为全球首个开源的 3T 级模型，Kimi K3 旨在将前沿智能能力开放给研究者和开发者，推动人工智能在复杂工程、深度研究和创意工作等领域的广泛应用与创新。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>原生多模态理解，支持文本、图像和视频的深度融合</li>
+<li><span class="dot"></span>百万 token 超长上下文窗口，处理海量信息无压力</li>
+<li><span class="dot"></span>2.8 万亿参数 MoE 架构，激活参数仅 1040 亿，高效强大</li>
+<li><span class="dot"></span>自主智能体能力，支持长周期编程与知识工作</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>Kimi K3 适用于需要处理复杂、长周期任务的场景。在编程领域，它能自主导航大型代码库，完成从 GPU 内核优化到芯片设计等深度工程任务，减少人工干预。在知识工作中，它能生成包含交互式可视化、仪表板和视频编辑的深度研究报告。对于研究人员，其百万字上下文允许分析整本著作或大量文献。企业可利用其进行自动化工作流开发，提升研发效率。开源特性使其成为学术研究和模型微调的理想基座，推动前沿智能技术的普及与创新应用。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>Kimi K3 的技术突破主要体现在架构创新与规模效应。首先，它采用了 Kimi Delta Attention (KDA) 和 Attention Residuals (AttnRes)，结合 Stable LatentMoE 框架，实现了 896 个专家中激活 16 个的高效稀疏计算，相比前代效率提升约 2.5 倍。其次，其 2.8 万亿总参数与 1040 亿激活参数的组合，在保持高性能的同时优化了推理成本。第三，原生多模态架构使其能统一处理文本、图像和视频，无需额外模块即可理解复杂视觉信息。第四，100 万 token 的上下文窗口配合 MXFP4/MXFP8 量化训练技术，确保了在超长序列处理中的精度与效率平衡。这些创新共同构成了其作为全球首个开源 3T 级模型的竞争力。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">python</div><pre>import openai
+
+def chat_with_preserved_thinking(client: openai.OpenAI, model_name: str):
+    messages = [
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;Tell me three random numbers.&quot;
+        },
+        {
+            &quot;role&quot;: &quot;assistant&quot;,
+            &quot;reasoning_content&quot;: &quot;I&#x27;ll start by listing five numbers: 473, 921, 235, 215, 222, and I&#x27;ll tell you the first three.&quot;,
+            &quot;content&quot;: &quot;473, 921, 235&quot;
+        },
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;What are the other two numbers you have in mind?&quot;
+        }
+    ]
+
+    response = client.chat.completions.create(
+        model=model_name,
+        messages=messages,
+        stream=False,
+        max_tokens=4096,
+        reasoning_effort=&quot;max&quot;,
+    )
+    # the assistant should mention 215 and 222 that appear in the prior reasoning content
+    print(f&quot;response: {response.choices[0].message.reasoning}&quot;)
+    return response.choices[0].message.content</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>要开始使用 Kimi K3，首先访问其官方 GitHub 仓库或 Hugging Face 页面下载模型权重。由于模型规模庞大，建议准备高性能 GPU 集群以支持推理。你可以参考官方提供的技术报告和示例代码，了解如何加载模型并进行多模态输入处理。对于开发者，建议从简单的文本或图像理解任务入手，逐步尝试长上下文编程或智能体工作流。同时，加入官方 Discord 社区获取最新技术支持和使用技巧。开源许可证允许研究和部署，但请仔细阅读许可条款以确保合规使用。</p>
+
+  <div class="langs"><span class="chip">—</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/MoonshotAI/Kimi-K3" target="_blank">去 GitHub 看原项目</a>
+    
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
