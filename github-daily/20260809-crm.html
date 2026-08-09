@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>crm - 专为AI助手打造的开源CRM，让智能体自主管理客户信息 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3178c6" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3178c6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3178c6" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3178c6" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3178c6" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">crm</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">trycompai/crm</text>
+  <circle cx="340" cy="305" r="5" fill="#3178c6"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">TypeScript</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 7,851</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Comp AI CRM is an open source,</text>
+</svg></div>
+  <h1>crm：专为AI助手打造的开源CRM，让智能体自主管理客户信息</h1>
+  <div class="tagline">trycompai/crm · TypeScript · ★ 7,851</div>
+  <div class="meta">发布日期：2026-08-09　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你雇了一个不知疲倦的助理，他每天自动帮你整理客户资料。传统的客户管理系统就像一个大档案柜，需要你自己去填表格。而这个系统不一样，它请了一位智能助理，这位助理会自己主动去查资料、记笔记、安排回访，甚至在你关电脑后还在工作。你只需要告诉它目标，它就会自己规划路线，把收集到的信息整理好放在柜子里。如果它不确定某个信息是否准确，会标注出来让你确认，而不是瞎猜。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 7,851</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">854</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">TypeScript</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">MIT</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>这是一个专为AI智能体设计的开源客户关系管理系统。与传统CRM不同，它不是给人用的数据库表单，而是让AI助手作为核心。系统包含一个独立部署的智能体应用，基于Eve框架构建，拥有18个工具、4项技能和自动调度机制。智能体会自主决定下一步查什么、何时回访、如何记录证据，并在预算用尽时停止。它强调&#x27;不猜测任何人的信息&#x27;，所有工具只报告观察到的事实，弱证据变成建议由人类确认。系统支持多种外部数据源（如LinkedIn、Web搜索），但即使没有API密钥也能运行，因为自身邮件和会议记录就是最可靠的证据。前端使用Next.js，后端用NestJS，数据存PostgreSQL，整体采用TypeScript技术栈。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>智能体自主运行：独立调度、自动规划工作队列、预算耗尽自动停止</li>
+<li><span class="dot"></span>零猜测原则：只记录观察到的事实，弱证据转为人类确认建议</li>
+<li><span class="dot"></span>透明可追溯：每个客户记录都有Agent标签页，实时查看智能体工作步骤</li>
+<li><span class="dot"></span>沙箱安全隔离：无网络无数据库权限，防止数据外泄</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>适合销售团队、客户成功团队或任何需要维护大量客户信息的场景。当销售代表忙于拜访客户时，智能体可以自动研究潜在客户背景、更新公司资料、安排跟进提醒。比如，智能体发现某客户公司换了新CEO，会自动记录并建议销售代表祝贺。对于中小企业，可以部署一套系统让AI助手24小时维护客户数据，减少人工录入错误。同时，由于支持无API密钥运行，初创团队可以用零成本启动，仅依赖内部邮件和会议记录就能建立基础客户档案。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>技术架构极具特色：采用Monorepo结构，Agent独立部署在Eve框架上，利用其文件系统优先的特性实现持久化会话。核心创新在于&#x27;证据定价&#x27;机制——工具只报告观察值（如签名档、GitHub账号），由账本系统评估证据强度，强证据直接写入记录，弱证据转为待确认建议。安全方面，沙箱环境deny-all出站策略，且永远不注入数据库凭证，Shell命令只能作为文本处理器。前后端通过tRPC实现端到端类型安全，前端URL状态管理让分享视图如同分享链接。单租户设计刻意移除组织字段，避免冗余索引和权限检查。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">code</div><pre>[agent] on   LinkedIn (RAPIDAPI_KEY)
+[agent] off  Web research (PERPLEXITY_API_KEY)
+[agent] off  Company brand data (Settings → General)</pre></div><div class="code-block"><div class="code-head">sh</div><pre>git clone https://github.com/trycompai/crm.git &amp;&amp; cd crm
+cp .env.example .env          # then fill in the values below
+bun install
+
+docker compose up -d          # Postgres on :5432
+
+bun run db:deploy             # apply migrations
+bun run db:seed               # optional: a believable pipeline to look at
+bun run dev</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>需要Bun运行时和Docker环境。首先克隆仓库并进入目录，复制.env.example为.env并填写必要配置（如BETTER_AUTH_SECRET、ALLOWED_SIGN_IN邮箱域名）。选择Google或Microsoft OAuth之一配置登录。运行docker compose up -d启动PostgreSQL，执行bun run db:deploy应用数据库迁移，可选bun run db:seed填充示例数据。最后bun run dev启动开发服务器，前端访问localhost:3000，API在3001端口。注意release分支为稳定版，main分支含未发布功能。</p>
+
+  <div class="langs"><span class="chip">TypeScript 94%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/trycompai/crm" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://trycrm.ai" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
