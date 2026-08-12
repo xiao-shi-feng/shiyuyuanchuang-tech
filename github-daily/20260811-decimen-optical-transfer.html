@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>decimen-optical-transfer - 用屏幕和摄像头传文件，无需网络，纯靠光信号实现设备间零接触传输 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3178c6" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3178c6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3178c6" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3178c6" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3178c6" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">decimen-optical-tr</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">bashalarmistalt/decimen-optical-transfer</text>
+  <circle cx="340" cy="305" r="5" fill="#3178c6"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">TypeScript</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 5,742</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle"></text>
+</svg></div>
+  <h1>decimen-optical-transfer：用屏幕和摄像头传文件，无需网络，纯靠光信号实现设备间零接触传输</h1>
+  <div class="tagline">bashalarmistalt/decimen-optical-transfer · TypeScript · ★ 5,742</div>
+  <div class="meta">发布日期：2026-08-11　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你想给朋友传一张照片，但你们俩都没有网络，也没有数据线，甚至连蓝牙都开不了。这时候，你只需要把照片变成屏幕上快速闪动的二维码动画，让朋友用手机摄像头对着你的屏幕看，照片就自动传到他手机里了。这就像是在两个设备之间架起了一道看不见的光桥，数据变成了光，从一台设备‘流’到了另一台设备。整个过程不需要安装任何软件，不需要配对，只要有一块屏幕和一个摄像头就能完成。哪怕中间有画面卡顿或者光线不好，只要多拍几眼，文件也能完整接收，就像收快递时哪怕包裹有点破损，只要主要东西在，就能拼凑完整一样。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 5,742</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">697</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">TypeScript</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">AGPL-3.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>Decimen Optical Transfer 是一个基于浏览器的开源文件传输工具，它利用屏幕显示和摄像头拍摄之间的光信号通道，实现两台设备之间的文件传输，完全不需要网络连接、蓝牙配对或任何额外的应用程序安装。其核心原理是将文件数据编码成一系列动态的二维码帧，发送端设备将这些帧以动画形式在屏幕上连续播放，接收端设备则通过摄像头实时捕捉这些画面，并利用 fountain 编码技术（一种容错编码方式）从捕捉到的任意足够数量的帧中还原出原始文件。这意味着即使部分帧因为光线、角度或遮挡而丢失，只要接收端收集到大约 115% 的数据量，就能完整恢复文件，不会出现数据损坏。项目支持最高 64MB 的文件传输，自动保留文件名和媒体类型，并在传输前进行完整性校验。目前实测在高性能显示器与旗舰手机之间，可持续传输速度达到约 418.5 KB/s，峰值可达 601.5 KB/s，足以在几秒内传输一张高清照片或一段短视频。整个系统完全在浏览器中运行，无需服务器中转，保护用户隐私，适合在无网络环境或需要避免网络暴露的场景下使用。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>零网络依赖：无需 Wi-Fi、蓝牙或互联网，仅靠屏幕和摄像头即可完成传输</li>
+<li><span class="dot"></span>即开即用：纯 Web 应用，无需安装 App，支持离线使用，iOS 和 Android 可添加至主屏幕</li>
+<li><span class="dot"></span>高容错传输：采用 fountain 编码技术，丢帧不影响文件完整性，只需收集约 115% 的帧数据</li>
+<li><span class="dot"></span>安全隐私：无网络路径，数据不经过任何服务器，仅通过光信号直接传输，SHA-256 校验保障完整性</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>该项目适用于多种无网络或需规避网络风险的场景。例如，在飞机、地铁等信号屏蔽环境中，用户可通过此方式在个人设备间快速分享照片、文档或视频；在涉密单位或高安全要求场合，员工可在物理隔离的网络环境中，通过屏幕与摄像头的光信号通道传输敏感文件，避免数据外泄；记者或摄影师在野外采风时，可将拍摄素材从相机屏幕传至手机，无需携带数据线或依赖云端同步；此外，在设备蓝牙或 NFC 功能故障时，也可作为应急替代方案。其最大价值在于提供了一种简单、无需配置、跨平台且隐私安全的文件传输途径，尤其适合临时性、小批量、高敏感性的数据交换需求。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>该项目的核心技术亮点在于其创新的屏幕-摄像头光信道设计与 fountain 编码的结合。由于屏幕到摄像头的链路是单向且无反馈的，传统重传机制无法使用，因此项目采用 Luby 变换 fountain 编码，将文件分块并生成冗余编码帧，接收端只需收集任意 K×1.15 个独立帧即可解码还原，丢帧仅影响速度而不影响正确性。视频流在页面中可直接播放，提升用户体验。项目基于 TypeScript 构建，使用 node-qrcode 生成二维码，并集成自定义编译的 zxing-cpp 解码器，确保在浏览器端高效处理。性能方面，通过优化编码帧率与解码算法，在高端设备组合下实现 418.5 KB/s 的持续吞吐量，峰值达 601.5 KB/s。项目还提供详细的诊断报告与基准测试工具，支持本地开发、独立部署及离线安装，架构清晰，文档完善，体现了工程化与学术研究的良好结合。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>npm install
+npm run dev               # https dev server with HMR
+npm run serve             # build, then serve the production bundle
+npm run demo              # demo mode: only the bundled payloads can be sent
+npm run diagnostics       # dev server + per-transfer run reports in the terminal
+npm run benchmark         # diagnostics + sender locked to the canonical 1 MB payload
+npm run benchmark:promote # declare your best captured run a record (updates the table above)
+npm test                  # golden wire-format vectors and unit tests
+npm run build             # the hosted site → dist/
+npm run build:standalone  # both self-contained pages → dist-standalone/
+npm run build:all         # everything</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>访问 https://decimen.app 即可在两台设备上直接使用，无需安装。发送端打开网站后选择文件或粘贴文本，生成动态二维码流；接收端用摄像头对准屏幕，自动开始接收并解码。若需本地运行，可克隆仓库后执行 npm install，再通过 npm run dev 启动开发服务器，在发送端访问 https://localhost:5173/send/，接收端通过打印的网络 URL 访问（需接受自签名证书）。建议使用高分辨率屏幕和性能良好的手机摄像头以获得最佳传输速度。项目支持离线使用，首次访问后可安装为 PWA 应用。详细教程可查看 docs/user/quick-start.md。</p>
+
+  <div class="langs"><span class="chip">TypeScript 81%</span> <span class="chip">CSS 11%</span> <span class="chip">HTML 8%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/bashalarmistalt/decimen-optical-transfer" target="_blank">去 GitHub 看原项目</a>
+    <a class="gh-btn" href="https://decimen.app/" target="_blank">项目主页</a>
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
