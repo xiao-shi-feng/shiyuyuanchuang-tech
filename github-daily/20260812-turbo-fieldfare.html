@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>turbo-fieldfare - 8GB内存Mac跑260亿参数大模型，仅占2GB内存 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#F05138" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#F05138" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#F05138" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#F05138" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#F05138" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">turbo-fieldfare</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">drumih/turbo-fieldfare</text>
+  <circle cx="340" cy="305" r="5" fill="#F05138"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Swift</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 5,776</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle">Gemma 4 26B-A4B inference in ~</text>
+</svg></div>
+  <h1>turbo-fieldfare：8GB内存Mac跑260亿参数大模型，仅占2GB内存</h1>
+  <div class="tagline">drumih/turbo-fieldfare · Swift · ★ 5,776</div>
+  <div class="meta">发布日期：2026-08-12　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你有一本超级厚的百科全书，里面装着全世界最厉害的知识。以前，你必须把整本书都搬回家才能阅读，占的地方很大。但这个项目就像发明了一种神奇的智能书架，它只把最核心的那几页留在手边，其余的页面等你需要的时候，才从图书馆快速借阅过来。这样一来，就算你家里空间很小，也能随时查阅这本厚厚的百科全书，而且速度还很快，完全不卡顿。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 5,776</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">338</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Swift</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">Apache-2.0</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>TurboFieldfare是一个专为苹果电脑设计的高效大模型运行工具。它的核心突破在于，能让参数量高达260亿的Gemma 4大模型，在仅有8GB内存的普通Mac电脑上流畅运行，且运行时内存占用仅约2GB。传统的大模型通常需要巨大的内存空间来存放所有参数，这迫使普通用户必须拥有昂贵的专业设备。而TurboFieldfare采用了一种创新的流式架构，它不像传统方式那样把整个模型一次性加载进内存。相反，它只将模型最核心的公共部分常驻内存，而对于那些复杂的专家模块，则采用按需从硬盘实时读取的方式。这种设计巧妙地平衡了性能与资源消耗，让大模型真正走入了普通消费者的日常设备中。目前它支持纯文本生成、对话以及开放兼容的服务器模式，用户既可以使用图形界面应用，也可以通过命令行或本地服务器进行交互，极大地降低了本地部署大模型的门槛。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>超极低内存占用，仅需2GB即可运行26B大模型</li>
+<li><span class="dot"></span>原生Swift与Metal优化，充分释放苹果芯片性能</li>
+<li><span class="dot"></span>支持Mac应用、命令行及OpenAI兼容服务器三种模式</li>
+<li><span class="dot"></span>流式按需加载专家模块，彻底告别全量模型加载</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>这个项目最适合拥有苹果芯片Mac但内存较小的个人开发者和爱好者。比如你有一台8GB内存的旧款MacBook Air，想体验顶尖大模型的推理能力，却苦于硬件不足。使用TurboFieldfare，你可以直接在本地运行强大的Gemma 4模型，无需依赖云端API，保护数据隐私的同时也能享受离线计算的自由。此外，开发者可以利用其OpenAI兼容服务器功能，在自己的本地环境中测试和调试AI应用，或者为其他软件提供本地大模型后端支持。无论是日常写作辅助、代码生成还是技术调研，它都能在你的设备上稳定运行，让高性能AI服务变得触手可及。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>TurboFieldfare的技术亮点在于其独特的分层缓存与流式执行引擎。它并未简单封装现有框架，而是深度定制了Swift与Metal运行时。核心机制是专家路由与按需预取：模型被划分为常驻内存的核心层和按需加载的专家层。在推理时，系统先计算注意力机制和路由决策，随后仅将当前Token所需的那些专家模块从SSD通过并行预读指令高效调入显存缓冲。这种机制避免了全量权重加载，将内存占用压缩至极致。同时，Prefill阶段采用分块处理，确保在大上下文场景下依然保持内存有界。项目详细记录了103项实验数据，涵盖了从内核优化到IO调度的全方位改进，证明了在受限硬件上实现高性能大模型推理的可行性。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>git clone https://github.com/drumih/turbo-fieldfare.git
+cd turbo-fieldfare
+swift build -c release
+.build/release/TurboFieldfareMac</pre></div><div class="code-block"><div class="code-head">bash</div><pre>swift build -c release
+.build/release/TurboFieldfareMac</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>首先，确保你拥有一台Apple Silicon芯片的Mac，且系统为macOS 26或以上版本。你需要安装Xcode 26及Swift 6.2以上工具链。第一步，克隆仓库并构建发布版本。第二步，打开原生Mac应用，点击“Download”下载约15GB的模型数据， installer会自动将其重组为优化的本地格式。第三步，模型下载完成后，点击“Load Model”加载，在输入框中输入你的指令，点击“Generate”即可开始生成。若偏好命令行，可使用CLI工具指定消息文件进行对话，或启动本地服务器以便程序调用。注意，安装期间需保持网络畅通，且建议关闭其他占用内存较大的应用以确保流畅体验。</p>
+
+  <div class="langs"><span class="chip">Swift 93%</span> <span class="chip">Metal 7%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/drumih/turbo-fieldfare" target="_blank">去 GitHub 看原项目</a>
+    
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
