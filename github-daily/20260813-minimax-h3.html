@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniMax-H3 - MiniMax H3：全能多模态生成系统，文本图片音频一键生成2K高保真视频 | 时煜源创科技 · GitHub 精选</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0f1e; color:#dbe4f5; font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.8; }
+  .top-nav { position:fixed; top:0; width:100%; z-index:99; background:rgba(10,15,30,.92); backdrop-filter:blur(8px); border-bottom:1px solid #16233f; }
+  .top-nav .inner { max-width:960px; margin:0 auto; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .top-nav a { color:#8b9dc9; text-decoration:none; font-size:14px; margin-right:18px; }
+  .top-nav a:hover, .top-nav a.active { color:#58a6ff; }
+  .top-nav .brand { color:#e6edff; font-weight:600; letter-spacing:1px; }
+  .wrap { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
+  .cover { border-radius:14px; overflow:hidden; border:1px solid #1c2b4a; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+  .cover img, .cover svg { width:100%; display:block; }
+  h1 { font-size:30px; line-height:1.4; margin:28px 0 10px; color:#f0f4ff; }
+  .tagline { font-size:18px; color:#58a6ff; margin-bottom:14px; }
+  .meta { color:#5d6f9e; font-size:13px; margin-bottom:28px; }
+  .plain-talk { background:linear-gradient(135deg,#12233f,#0e1a33); border:1px solid #2c4370; border-left:4px solid #58a6ff; border-radius:12px; padding:22px 24px; margin:22px 0 30px; }
+  .plain-head { color:#58a6ff; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:10px; }
+  .plain-talk p { color:#dbe4f5; font-size:16px; line-height:2; }
+  .data-card { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 34px; }
+  .data-item { background:#0e1730; border:1px solid #1c2b4a; border-radius:10px; padding:14px; text-align:center; }
+  .data-item .num { font-size:22px; font-weight:700; color:#58a6ff; }
+  .data-item .lab { font-size:12px; color:#5d6f9e; margin-top:2px; }
+  h2.sec { font-size:21px; margin:36px 0 14px; padding-left:12px; border-left:4px solid #58a6ff; color:#f0f4ff; }
+  p { margin-bottom:14px; color:#c3cfe6; }
+  ul.feats { list-style:none; margin:8px 0 18px; }
+  ul.feats li { padding:8px 0 8px 26px; position:relative; color:#c3cfe6; }
+  ul.feats .dot { position:absolute; left:4px; top:16px; width:8px; height:8px; border-radius:2px; background:#58a6ff; transform:rotate(45deg); }
+  .code-card { border:1px solid #1c2b4a; border-radius:10px; overflow:hidden; margin:10px 0 20px; }
+  .code-block { border-bottom:1px solid #16233f; }
+  .code-block:last-child { border-bottom:none; }
+  .code-head { background:#0e1730; color:#5d6f9e; font-size:12px; padding:6px 14px; font-family:monospace; }
+  pre { background:#080d1a; color:#a8c0e8; padding:16px; overflow-x:auto; font-size:13px; line-height:1.6; }
+  .langs { margin:10px 0 20px; }
+  .chip { display:inline-block; background:#0e1730; border:1px solid #1c2b4a; color:#8b9dc9; border-radius:20px; padding:3px 12px; font-size:12px; margin-right:8px; }
+  .gh-btns { display:flex; gap:12px; margin:30px 0 10px; flex-wrap:wrap; }
+  .gh-btn { display:inline-block; background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; text-decoration:none; padding:11px 24px; border-radius:8px; font-size:15px; }
+  .gh-btn.ghost { background:transparent; border:1px solid #2c4370; color:#8b9dc9; }
+  .footer { border-top:1px solid #16233f; margin-top:60px; padding:24px 0; text-align:center; color:#5d6f9e; font-size:13px; }
+  @media(max-width:700px) { .data-card { grid-template-columns:repeat(2,1fr); } h1 { font-size:24px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav"><div class="inner">
+  <a class="brand" href="../index.html">时煜源创科技</a>
+  <div><a href="../index.html">首页</a><a href="../products.html">产品</a><a href="../blog.html">新闻</a><a href="../github-daily.html" class="active">GitHub精选</a></div>
+</div></nav>
+
+<div class="wrap">
+  <div class="cover"><svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#101b33"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#3572A5" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3572A5" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c2b4a" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <rect width="800" height="420" fill="url(#grid)"/>
+  <rect width="800" height="420" fill="url(#glow)"/>
+  <circle cx="700" cy="70" r="140" fill="#3572A5" opacity="0.08"/>
+  <circle cx="120" cy="360" r="100" fill="#3572A5" opacity="0.06"/>
+  <text x="56" y="88" font-family="monospace" font-size="15" fill="#8b9dc9" letter-spacing="2">GITHUB DAILY · 开源精选</text>
+  <rect x="52" y="56" width="60" height="4" rx="2" fill="#3572A5" opacity="0.9"/>
+  <text x="400" y="218" font-family="Georgia,serif" font-size="56" fill="#f0f4ff" text-anchor="middle" letter-spacing="1">MiniMax-H3</text>
+  <text x="400" y="258" font-family="sans-serif" font-size="17" fill="#8b9dc9" text-anchor="middle">MiniMax-AI/MiniMax-H3</text>
+  <circle cx="340" cy="305" r="5" fill="#3572A5"/>
+  <text x="356" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">Python</text>
+  <text x="444" y="311" font-family="sans-serif" font-size="16" fill="#c9d6f2">★ 5,571</text>
+  <text x="400" y="368" font-family="sans-serif" font-size="14" fill="#5d6f9e" text-anchor="middle"></text>
+</svg></div>
+  <h1>MiniMax-H3：MiniMax H3：全能多模态生成系统，文本图片音频一键生成2K高保真视频</h1>
+  <div class="tagline">MiniMax-AI/MiniMax-H3 · Python · ★ 5,571</div>
+  <div class="meta">发布日期：2026-08-13　|　数据来源：GitHub</div>
+
+  <div class="plain-talk">
+    <div class="plain-head">大白话版 · 不懂技术也能看</div>
+    <p>想象一下，你手里有一堆素材——几张图片、一段背景音乐，或者几段短视频，甚至只有几行文字描述。以前你想把这些变成一段流畅的视频，得请专业团队，花好几天时间剪辑制作。现在，MiniMax H3就像一个全能的创意导演兼后期特效师。你只需要告诉它你想看什么，或者给它参考画面和声音，它就能在几秒钟到十几秒钟内，为你生成一段画质清晰、配有立体声效果的短视频。它不仅能听懂复杂的要求，还能自动补全细节，让生成的内容既符合你的想法，又充满想象力，就像变魔术一样简单。</p>
+  </div>
+
+  <div class="data-card">
+    <div class="data-item"><div class="num">★ 5,571</div><div class="lab">Star</div></div>
+    <div class="data-item"><div class="num">346</div><div class="lab">Fork</div></div>
+    <div class="data-item"><div class="num">Python</div><div class="lab">主语言</div></div>
+    <div class="data-item"><div class="num">未知</div><div class="lab">协议</div></div>
+  </div>
+
+  <h2 class="sec">这是什么</h2>
+  <p>MiniMax H3是MiniMax公司推出的一款通用型全模态生成系统。简单来说，它是一个能够同时理解和处理文字、图片、视频和音频的超级人工智能。它的核心能力是将这些不同的素材融合在一起，生成高质量的动态视频内容。
+
+这个项目不仅仅是一个单一的模型，而是一套完整的系统。它首先通过一个预处理模块（Context-IR）来深度理解你输入的各种复杂指令和素材，理清它们之间的关系。然后，核心的生成模型（H3-Base）会根据这些理解，自动生成视频画面和同步的立体声音效，默认分辨率为768p。如果你需要更高清的效果，还可以使用再生成模块（H3-Regenerate-2K），将初步生成的视频作为基础，结合原始素材，进一步重建成2K的高清分辨率。
+
+在输入方面，H3非常灵活。你可以只提供文字生成视频，也可以提供一张图片让它动起来，或者提供首尾两张图片让它自动生成中间的过渡过程。更厉害的是，它能接受多达9张图片、3段视频和3段音频的混合输入，并能稳定支持中文、英文、日文等11种语言的理解。</p>
+
+  <h2 class="sec">核心功能</h2>
+  <ul class="feats"><li><span class="dot"></span>支持文本、图片、视频、音频多种模态的混合输入与统一理解</li>
+<li><span class="dot"></span>原生生成带32kHz立体声的视频，无需额外配音</li>
+<li><span class="dot"></span>具备从768p到2K超高清分辨率的再生成增强能力</li>
+<li><span class="dot"></span>内置八种特定风格视频生成技能（如广告、动漫、手账动画等）</li></ul>
+
+  <h2 class="sec">能用来做什么</h2>
+  <p>MiniMax H3的应用场景非常广泛，特别适合内容创作者、营销人员和设计师。比如，你可以利用它快速制作产品宣传短片，只需上传产品图片和品牌视频，AI就能生成极具质感的商业广告。对于游戏开发者，它可以生成游戏开场动画或角色动作演示。在教育领域，老师可以将复杂的知识点转化为生动的动画视频，帮助学生理解。此外，它还能用于社交媒体内容的快速生产，比如根据一首歌生成MV字幕视频，或者根据小说片段生成3D动画短片。其强大的多模态理解能力，使得任何拥有创意想法但缺乏专业视频制作技能的人，都能轻松将想法转化为可视化的视频作品，极大地降低了视频创作的门槛。</p>
+
+  <h2 class="sec">技术亮点</h2>
+  <p>MiniMax H3的技术架构采用了分层设计，显著提升了生成的质量和可控性。首先，系统引入了一个专门的上下文理解模块，它能像人类一样深入解析用户意图，通过指令解析、跨模态关联和时序理解，将复杂的混合输入转化为模型易于处理的中间表示，这大大保证了生成结果不偏离用户初衷。
+
+在核心生成层，H3采用了统一的Transformer架构，同时处理视频和音频 latent 表示。它巧妙地结合了Qwen3-VL-32B的视觉编码能力和自研的视觉与音频变分自编码器（VAE），实现了视听内容的同步生成。特别值得一提的是，系统原生支持稀疏注意力训练和推理，虽然初始版本提供全注意力推理，但这种设计为处理超长多模态序列提供了高效的计算基础。此外，通过两阶段生成策略——先生成768p基础版本，再通过再生成模块提升至2K分辨率——系统在细节还原和视觉保真度上达到了新的高度。</p>
+
+  <h2 class="sec">示例速览</h2>
+<div class="code-card"><div class="code-block"><div class="code-head">bash</div><pre>npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writing</pre></div><div class="code-block"><div class="code-head">text</div><pre>&lt;TASK&gt;/
+├── model_index.json
+├── processor/
+├── tokenizer/
+├── text_encoder/
+├── transformer/
+├── visual_vae/
+└── audio_vae/</pre></div></div>
+
+  <h2 class="sec">如何上手</h2>
+  <p>想要快速体验MiniMax H3，有几种便捷的方式。最简单的是直接访问MiniMax的官方在线应用网站，如hailuoai.video，无需安装任何软件，上传你的图片或视频，输入文字描述即可开始生成。如果你熟悉API调用，可以通过MiniMax平台直接使用云端接口，快速集成到你的应用中。对于开发者，仓库提供了名为h3-prompt-writing的技能包，通过npx命令即可安装，帮助你在各种Agent环境中编写高质量的视频生成提示词。此外，仓库还附带了八个特定风格的生成技能，如极简产品广告、3D动画短片等，你可以直接下载并参考其技能说明文件，快速上手制作特定类型的视频内容。</p>
+
+  <div class="langs"><span class="chip">Python 91%</span> <span class="chip">Shell 9%</span></div>
+
+  <div class="gh-btns">
+    <a class="gh-btn" href="https://github.com/MiniMax-AI/MiniMax-H3" target="_blank">去 GitHub 看原项目</a>
+    
+    <a class="gh-btn ghost" href="../github-daily.html">← 返回精选列表</a>
+  </div>
+</div>
+
+<footer class="footer">石家庄时煜源创科技有限公司 · 开源项目每日精选 · 内容由 AI 分析生成，仅供参考</footer>
+</body>
+</html>
