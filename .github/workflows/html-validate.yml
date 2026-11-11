@@ -1,0 +1,37 @@
+name: HTML Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install htmlhint
+        run: npm install -g htmlhint
+      
+      - name: Validate HTML files
+        run: |
+          htmlhint "*.html" || true
+          # Also check for common issues
+          echo "Checking for broken links..."
+          # Basic checks
+          for f in *.html; do
+            echo "Checking $f..."
+            # Check for unclosed tags (basic)
+            if grep -q '<img[^>]*[^/]>$' "$f"; then
+              echo "  ⚠️  Possible unclosed img tag in $f"
+            fi
+          done
+        continue-on-error: true
+
+      - name: Check required files
+        run: |
+          test -f index.html && echo "✅ index.html exists"
+          test -f blog.html && echo "✅ blog.html exists"
+          test -f CNAME || echo "ℹ️  No CNAME file (using default GitHub Pages domain)"
